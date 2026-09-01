@@ -1,0 +1,1590 @@
+/* ================================
+   BASIC SETUP
+================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: "Segoe UI", Arial, sans-serif;
+
+    background: linear-gradient(
+        120deg,
+        #7289da,
+        #9b8de5,
+        #b9a4ed,
+        #7eb9e8
+    );
+
+    background-size: 400% 400%;
+
+    animation: backgroundMove 10s ease infinite;
+}
+
+
+/* ================================
+   FLOATING BUBBLES
+================================ */
+
+.bubble {
+    position: fixed;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.18);
+
+    border: 2px solid rgba(255,255,255,0.35);
+
+    box-shadow:
+        inset 5px 5px 15px rgba(255,255,255,0.3),
+        0 10px 30px rgba(40,50,120,0.15);
+
+    pointer-events: none;
+}
+
+
+/* Bubble 1 */
+
+.bubble-1 {
+    width: 150px;
+    height: 150px;
+
+    left: 5%;
+    top: 10%;
+
+    animation: bubble1 7s ease-in-out infinite;
+}
+
+
+/* Bubble 2 */
+
+.bubble-2 {
+    width: 70px;
+    height: 70px;
+
+    right: 15%;
+    top: 12%;
+
+    animation: bubble2 5s ease-in-out infinite;
+}
+
+
+/* Bubble 3 */
+
+.bubble-3 {
+    width: 45px;
+    height: 45px;
+
+    left: 18%;
+    bottom: 18%;
+
+    animation: bubble3 6s ease-in-out infinite;
+}
+
+
+/* Bubble 4 */
+
+.bubble-4 {
+    width: 130px;
+    height: 130px;
+
+    right: 5%;
+    bottom: 12%;
+
+    animation: bubble4 8s ease-in-out infinite;
+}
+
+
+/* Bubble 5 */
+
+.bubble-5 {
+    width: 35px;
+    height: 35px;
+
+    right: 30%;
+    bottom: 15%;
+
+    animation: bubble5 4s ease-in-out infinite;
+}
+
+
+/* Bubble 6 */
+
+.bubble-6 {
+    width: 25px;
+    height: 25px;
+
+    left: 35%;
+    top: 15%;
+
+    animation: bubble6 3s ease-in-out infinite;
+}
+
+
+/* Bubble 7 */
+
+.bubble-7 {
+    width: 60px;
+    height: 60px;
+
+    left: 8%;
+    bottom: 10%;
+
+    animation: bubble7 6s ease-in-out infinite;
+}
+
+
+/* ================================
+   MAIN CARD
+================================ */
+
+.welcome-card {
+
+    position: relative;
+    z-index: 10;
+
+    width: 850px;
+    max-width: 88%;
+
+    min-height: 600px;
+
+    padding: 70px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    background: rgba(255,255,255,0.25);
+
+    border: 1px solid rgba(255,255,255,0.5);
+
+    border-radius: 35px;
+
+    backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 30px 80px rgba(40,50,130,0.25);
+
+    /* VERY VISIBLE ENTRY */
+
+    animation: cardEnter 1.5s ease-out;
+}
+
+
+/* ================================
+   TOP STAR
+================================ */
+
+.top-decoration {
+
+    font-size: 30px;
+
+    color: white;
+
+    margin-bottom: 20px;
+
+    animation: starPulse 2s ease-in-out infinite;
+}
+
+
+/* ================================
+   SMALL TITLE
+================================ */
+
+.little-title {
+
+    color: white;
+
+    font-size: 14px;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 20px;
+
+    opacity: 0;
+
+    animation: textAppear 1s 0.5s forwards;
+}
+
+
+/* ================================
+   MAIN NAME
+================================ */
+
+.welcome-card h1 {
+
+    font-family: Georgia, serif;
+
+    font-size: 80px;
+
+    color: white;
+
+    margin-bottom: 25px;
+
+    opacity: 0;
+
+    animation: nameAppear 1.3s 0.9s forwards;
+
+    text-shadow:
+        0 10px 25px rgba(50,50,130,0.25);
+}
+
+
+/* ================================
+   DIVIDER
+================================ */
+
+.divider {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+
+    opacity: 0;
+
+    animation: dividerAppear 1s 1.5s forwards;
+}
+
+
+.divider span {
+
+    width: 80px;
+
+    height: 2px;
+
+    background: rgba(255,255,255,0.7);
+}
+
+
+.divider b {
+
+    color: white;
+
+    animation: starPulse 2s infinite;
+}
+
+
+/* ================================
+   INTRO
+================================ */
+
+.intro {
+
+    font-size: 25px;
+
+    color: white;
+
+    margin-bottom: 15px;
+
+    opacity: 0;
+
+    animation: textAppear 1s 1.8s forwards;
+}
+
+
+/* ================================
+   MESSAGE
+================================ */
+
+.message {
+
+    font-size: 18px;
+
+    line-height: 1.8;
+
+    color: #f4f5ff;
+
+    margin-bottom: 35px;
+
+    opacity: 0;
+
+    animation: textAppear 1s 2.1s forwards;
+}
+
+
+/* ================================
+   BUTTON
+================================ */
+
+.surprise-button {
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 18px 40px;
+
+    min-width: 320px;
+
+    border: none;
+
+    border-radius: 50px;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    background: linear-gradient(
+        90deg,
+        #54b9ee,
+        #8c7be8,
+        #df83b7
+    );
+
+    background-size: 200% 200%;
+
+    box-shadow:
+        0 10px 30px rgba(50,70,170,0.3);
+
+    opacity: 0;
+
+    animation:
+        buttonAppear 1s 2.5s forwards,
+        buttonColor 4s 3.5s ease infinite,
+        buttonGlow 2s 4s ease-in-out infinite;
+}
+
+
+.surprise-button:hover {
+
+    transform: scale(1.08);
+
+}
+
+
+/* Moving shine */
+
+.surprise-button::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 60%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.7),
+        transparent
+    );
+
+    transform: skewX(-20deg);
+
+    animation: shine 3s 4s infinite;
+}
+
+
+/* ================================
+   FOOTER
+================================ */
+
+.made-by {
+
+    margin-top: 30px;
+
+    color: rgba(255,255,255,0.75);
+
+    font-size: 14px;
+
+    opacity: 0;
+
+    animation: textAppear 1s 2.9s forwards;
+}
+
+
+/* ================================
+   BACKGROUND ANIMATION
+================================ */
+
+@keyframes backgroundMove {
+
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+/* ================================
+   CARD ANIMATION
+================================ */
+
+@keyframes cardEnter {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            scale(0.65)
+            translateY(100px);
+
+        filter: blur(15px);
+    }
+
+    70% {
+
+        transform:
+            scale(1.03)
+            translateY(-8px);
+
+        filter: blur(0);
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            scale(1)
+            translateY(0);
+    }
+}
+
+
+/* ================================
+   NAME ANIMATION
+================================ */
+
+@keyframes nameAppear {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translateY(50px)
+            scale(0.7);
+
+        filter: blur(10px);
+    }
+
+    70% {
+
+        transform:
+            translateY(-5px)
+            scale(1.05);
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+        filter: blur(0);
+    }
+}
+
+
+/* ================================
+   TEXT
+================================ */
+
+@keyframes textAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(25px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* ================================
+   DIVIDER
+================================ */
+
+@keyframes dividerAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            scaleX(0);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            scaleX(1);
+    }
+}
+
+
+/* ================================
+   STAR
+================================ */
+
+@keyframes starPulse {
+
+    0% {
+
+        transform:
+            scale(0.8)
+            rotate(0deg);
+
+        opacity: 0.5;
+    }
+
+    50% {
+
+        transform:
+            scale(1.4)
+            rotate(20deg);
+
+        opacity: 1;
+    }
+
+    100% {
+
+        transform:
+            scale(0.8)
+            rotate(0deg);
+
+        opacity: 0.5;
+    }
+}
+
+
+/* ================================
+   BUTTON
+================================ */
+
+@keyframes buttonAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(30px)
+            scale(0.8);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+@keyframes buttonColor {
+
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+@keyframes buttonGlow {
+
+    0% {
+
+        box-shadow:
+            0 10px 30px
+            rgba(50,70,170,0.3);
+    }
+
+    50% {
+
+        box-shadow:
+            0 10px 45px
+            rgba(255,255,255,0.45);
+    }
+
+    100% {
+
+        box-shadow:
+            0 10px 30px
+            rgba(50,70,170,0.3);
+    }
+}
+
+
+@keyframes shine {
+
+    0% {
+        left: -100%;
+    }
+
+    40% {
+        left: 140%;
+    }
+
+    100% {
+        left: 140%;
+    }
+}
+
+
+/* ================================
+   BUBBLE ANIMATIONS
+================================ */
+
+@keyframes bubble1 {
+
+    0% {
+        transform:
+            translate(0,0)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translate(80px,-100px)
+            scale(1.15);
+    }
+
+    100% {
+        transform:
+            translate(0,0)
+            scale(1);
+    }
+}
+
+
+@keyframes bubble2 {
+
+    0% {
+        transform:
+            translate(0,0);
+    }
+
+    50% {
+        transform:
+            translate(-60px,80px);
+    }
+
+    100% {
+        transform:
+            translate(0,0);
+    }
+}
+
+
+@keyframes bubble3 {
+
+    0% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-100px);
+    }
+
+    100% {
+        transform:
+            translateY(0);
+    }
+}
+
+
+@keyframes bubble4 {
+
+    0% {
+        transform:
+            translate(0,0)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translate(-80px,-80px)
+            scale(1.2);
+    }
+
+    100% {
+        transform:
+            translate(0,0)
+            scale(1);
+    }
+}
+
+
+@keyframes bubble5 {
+
+    0% {
+        transform:
+            translate(0,0);
+    }
+
+    50% {
+        transform:
+            translate(40px,-60px);
+    }
+
+    100% {
+        transform:
+            translate(0,0);
+    }
+}
+
+
+@keyframes bubble6 {
+
+    0% {
+        transform:
+            translateY(0)
+            scale(0.7);
+    }
+
+    50% {
+        transform:
+            translateY(60px)
+            scale(1.3);
+    }
+
+    100% {
+        transform:
+            translateY(0)
+            scale(0.7);
+    }
+}
+
+
+@keyframes bubble7 {
+
+    0% {
+        transform:
+            translate(0,0);
+    }
+
+    50% {
+        transform:
+            translate(60px,-80px);
+    }
+
+    100% {
+        transform:
+            translate(0,0);
+    }
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 650px) {
+
+    .welcome-card {
+
+        padding: 45px 25px;
+
+        min-height: 550px;
+    }
+
+    .welcome-card h1 {
+
+        font-size: 52px;
+    }
+
+    .intro {
+
+        font-size: 20px;
+    }
+
+    .message {
+
+        font-size: 16px;
+    }
+
+    .surprise-button {
+
+        min-width: 250px;
+
+        font-size: 13px;
+    }
+}
+/* =========================================
+   HIDE OTHER SCREENS UNTIL THEY ARE NEEDED
+========================================= */
+
+.loading-screen {
+    display: none;
+}
+
+.dashboard {
+    display: none;
+}
+/* ==========================================
+   FRIENDSHIP.EXE LOADING SCREEN
+========================================== */
+
+.loading-screen {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    display: none;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #aaa1ed,
+            #7775d5 45%,
+            #555fbd
+        );
+
+    opacity: 0;
+
+    transition: opacity 0.8s ease;
+}
+
+
+.loading-screen.show {
+
+    opacity: 1;
+}
+
+
+.loading-card {
+
+    width: 500px;
+
+    max-width: 85%;
+
+    padding: 45px;
+
+    border-radius: 25px;
+
+    background:
+        rgba(20, 25, 60, 0.55);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.35);
+
+    backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 30px 80px
+        rgba(20,20,80,0.4);
+
+    color: white;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    animation:
+        terminalEnter 1s
+        cubic-bezier(.16,1,.3,1);
+}
+
+
+.loading-icon {
+
+    text-align: center;
+
+    font-size: 45px;
+
+    margin-bottom: 20px;
+
+    animation:
+        computerPulse 1.5s
+        ease-in-out infinite;
+}
+
+
+.terminal-title {
+
+    text-align: center;
+
+    font-size: 28px;
+
+    font-weight: bold;
+
+    margin-bottom: 30px;
+
+    letter-spacing: 2px;
+}
+
+
+.terminal-line {
+
+    margin: 12px 0;
+
+    font-size: 15px;
+
+    opacity: 0;
+
+    animation:
+        terminalText 0.7s
+        forwards;
+}
+
+
+.terminal-line:nth-child(3) {
+
+    animation-delay: 0.4s;
+}
+
+
+.terminal-line:nth-child(4) {
+
+    animation-delay: 0.8s;
+}
+
+
+.terminal-line:nth-child(5) {
+
+    animation-delay: 1.2s;
+}
+
+
+.progress-container {
+
+    width: 100%;
+
+    height: 12px;
+
+    margin-top: 30px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255,255,255,0.15);
+
+    overflow: hidden;
+}
+
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #66d9ff,
+            #a889ff,
+            #ff9fd8
+        );
+
+    box-shadow:
+        0 0 15px
+        rgba(255,255,255,0.7);
+
+    transition: width 0.08s linear;
+}
+
+.loading-percent {
+
+    text-align: right;
+
+    margin-top: 10px;
+
+    font-size: 13px;
+
+    animation:
+        percentBlink 1s
+        infinite;
+}
+
+
+/* ==========================================
+   ANIMATIONS
+========================================== */
+
+@keyframes terminalEnter {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            scale(0.7)
+            translateY(60px);
+
+        filter: blur(12px);
+    }
+
+    70% {
+
+        transform:
+            scale(1.03)
+            translateY(-5px);
+
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            scale(1)
+            translateY(0);
+
+        filter: blur(0);
+    }
+}
+
+
+@keyframes computerPulse {
+
+    0%,
+    100% {
+
+        transform:
+            scale(0.9);
+
+    }
+
+    50% {
+
+        transform:
+            scale(1.15);
+
+        filter:
+            drop-shadow(
+                0 0 15px
+                rgba(255,255,255,0.7)
+            );
+    }
+}
+
+
+@keyframes terminalText {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateX(-20px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateX(0);
+
+    }
+}
+
+
+@keyframes loadingProgress {
+
+    from {
+
+        width: 0%;
+
+    }
+
+    to {
+
+        width: 100%;
+
+    }
+}
+
+
+@keyframes percentBlink {
+
+    0%,
+    100% {
+
+        opacity: 0.5;
+
+    }
+
+    50% {
+
+        opacity: 1;
+
+    }
+}
+/* ==========================================
+   FRIENDSHIP.EXE EXTRA EFFECTS
+========================================== */
+
+.loading-card {
+
+    animation:
+        terminalEnter 1s
+        cubic-bezier(.16,1,.3,1),
+        terminalFloat 4s
+        ease-in-out
+        1s infinite alternate;
+}
+
+
+.loading-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: -2px;
+
+    border-radius: 27px;
+
+    padding: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.7),
+            transparent
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        borderScan 3s
+        linear infinite;
+
+    pointer-events: none;
+
+    opacity: 0.5;
+}
+
+
+@keyframes terminalFloat {
+
+    from {
+
+        transform:
+            translateY(0);
+
+    }
+
+    to {
+
+        transform:
+            translateY(-10px);
+
+    }
+}
+
+
+@keyframes borderScan {
+
+    from {
+
+        background-position:
+            -100% 0;
+
+    }
+
+    to {
+
+        background-position:
+            200% 0;
+
+    }
+}
+/* =========================================
+   PREMIUM DASHBOARD CARDS
+========================================= */
+
+.dashboard-buttons {
+    width: min(900px, 90%);
+    margin: 45px auto 0;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 28px;
+
+    padding: 10px;
+}
+
+
+/* Individual cards */
+
+.dashboard-buttons button {
+    position: relative;
+
+    min-height: 150px;
+
+    padding: 28px 25px;
+
+    border: 1px solid rgba(255, 255, 255, 0.35);
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.20),
+            rgba(255,255,255,0.07)
+        );
+
+    backdrop-filter: blur(18px);
+
+    -webkit-backdrop-filter: blur(18px);
+
+    color: white;
+
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 12px 35px rgba(45, 40, 120, 0.20);
+
+    transition:
+        transform 0.45s cubic-bezier(.16,1,.3,1),
+        box-shadow 0.45s ease,
+        border-color 0.45s ease,
+        background 0.45s ease;
+}
+
+
+/* Soft light inside card */
+
+.dashboard-buttons button::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    top: -100px;
+    left: -100px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,0.18);
+
+    filter: blur(20px);
+
+    transition:
+        transform 0.6s ease;
+}
+
+
+/* Shine that moves across card */
+
+.dashboard-buttons button::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 80%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.25),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    transition: left 0.7s ease;
+}
+
+
+/* =========================================
+   HOVER EFFECT
+========================================= */
+
+.dashboard-buttons button:hover {
+
+    transform:
+        translateY(-12px)
+        scale(1.025);
+
+    border-color:
+        rgba(255,255,255,0.75);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.28),
+            rgba(255,255,255,0.12)
+        );
+
+    box-shadow:
+        0 25px 55px
+        rgba(35, 30, 130, 0.35);
+
+}
+
+
+.dashboard-buttons button:hover::before {
+
+    transform:
+        translate(220px, 180px);
+}
+
+
+.dashboard-buttons button:hover::after {
+
+    left: 140%;
+}
+
+
+/* =========================================
+   ICON
+========================================= */
+
+.dashboard-buttons button span {
+
+    position: relative;
+
+    z-index: 2;
+
+    font-size: 42px;
+
+    margin-bottom: 12px;
+
+    display: block;
+
+    transition:
+        transform 0.45s
+        cubic-bezier(.16,1,.3,1),
+        filter 0.45s ease;
+}
+
+
+.dashboard-buttons button:hover span {
+
+    transform:
+        scale(1.25)
+        rotate(-5deg);
+
+    filter:
+        drop-shadow(
+            0 0 14px
+            rgba(255,255,255,0.65)
+        );
+}
+
+
+/* =========================================
+   CARD TITLE
+========================================= */
+
+.dashboard-buttons button strong {
+
+    position: relative;
+
+    z-index: 2;
+
+    font-size: 18px;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 6px;
+
+    transition:
+        letter-spacing 0.4s ease;
+}
+
+
+.dashboard-buttons button:hover strong {
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.dashboard-buttons button small {
+
+    position: relative;
+
+    z-index: 2;
+
+    font-size: 13px;
+
+    opacity: 0.75;
+
+    letter-spacing: 0.5px;
+
+    transition:
+        opacity 0.4s ease,
+        transform 0.4s ease;
+}
+
+
+.dashboard-buttons button:hover small {
+
+    opacity: 1;
+
+    transform:
+        translateY(2px);
+}
+
+
+/* =========================================
+   CARD ENTRY ANIMATION
+========================================= */
+
+.dashboard-buttons button {
+
+    animation:
+        cardAppear 0.8s
+        cubic-bezier(.16,1,.3,1)
+        both;
+}
+
+
+.dashboard-buttons button:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+
+.dashboard-buttons button:nth-child(2) {
+    animation-delay: 0.35s;
+}
+
+
+.dashboard-buttons button:nth-child(3) {
+    animation-delay: 0.5s;
+}
+
+
+.dashboard-buttons button:nth-child(4) {
+    animation-delay: 0.65s;
+}
+
+
+@keyframes cardAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(40px)
+            scale(0.92);
+
+        filter: blur(8px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+        filter: blur(0);
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 650px) {
+
+    .dashboard-buttons {
+
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+
+        width: 88%;
+    }
+
+    .dashboard-buttons button {
+
+        min-height: 130px;
+
+    }
+
+}
