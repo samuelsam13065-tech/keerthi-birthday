@@ -1,3 +1,14 @@
+/* HIDE STORY UNTIL BUTTON IS CLICKED */
+#ourStory {
+    display: none !important;
+}
+/* =========================
+   SCREEN CONTROL
+========================= */
+
+.hidden {
+    display: none !important;
+}
 /* ================================
    BASIC SETUP
 ================================ */
@@ -1587,4 +1598,1498 @@ body {
 
     }
 
+}
+.memories-screen {
+    display: none;
+    min-height: 100vh;
+    padding: 40px 20px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.memories-screen h1 {
+    margin-top: 20px;
+    font-size: 38px;
+}
+
+.memory-card {
+    max-width: 600px;
+    margin: 35px auto;
+    padding: 18px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.memory-card img {
+    width: 100%;
+    max-height: 500px;
+    object-fit: contain;
+    border-radius: 18px;
+    display: block;
+}
+
+.memory-card p {
+    margin-top: 18px;
+    font-size: 18px;
+}
+
+.back-button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+}
+/* =====================================
+   OUR MEMORIES SCREEN
+   ===================================== */
+
+.memories-screen {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+    box-sizing: border-box;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(255,255,255,0.25),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #8d82df,
+            #b6a9ee,
+            #7e91df
+        );
+
+    z-index: 9999;
+
+    overflow-y: auto;
+}
+
+
+/* Content */
+
+.memories-content {
+    width: min(850px, 92%);
+
+    text-align: center;
+
+    animation: memoriesEnter 0.8s ease forwards;
+}
+
+
+/* Heading */
+
+.memory-heading {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 18px;
+
+    color: white;
+}
+
+.memory-heading h1 {
+    margin: 0;
+
+    font-size: clamp(35px, 6vw, 65px);
+
+    font-family: Georgia, serif;
+
+    text-shadow:
+        0 5px 20px rgba(0,0,0,0.2);
+}
+
+.memory-heading span {
+    font-size: 25px;
+
+    animation: sparkle 1.5s ease-in-out infinite;
+}
+
+
+/* Subtitle */
+
+.memory-subtitle {
+    color: white;
+
+    font-size: 18px;
+
+    margin: 12px 0 30px;
+
+    opacity: 0.9;
+}
+
+
+/* Memory card */
+
+.memory-card {
+
+    width: min(650px, 100%);
+
+    margin: auto;
+
+    padding: 15px;
+
+    border-radius: 30px;
+
+    background: rgba(255,255,255,0.18);
+
+    border: 1px solid rgba(255,255,255,0.4);
+
+    backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 25px 60px rgba(30,20,90,0.3);
+
+    box-sizing: border-box;
+
+    animation: cardFloat 4s ease-in-out infinite;
+}
+
+
+/* Image */
+
+.memory-image-wrapper {
+
+    width: 100%;
+
+    aspect-ratio: 4 / 3;
+
+    overflow: hidden;
+
+    border-radius: 22px;
+
+    background: rgba(255,255,255,0.15);
+
+}
+
+
+.memory-image-wrapper img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    display: block;
+
+    transition:
+        opacity 0.4s ease,
+        transform 0.5s ease;
+
+}
+
+
+/* Caption */
+
+.memory-info {
+
+    padding: 15px 10px 5px;
+
+    color: white;
+}
+
+
+.memory-info p {
+
+    margin: 0 0 8px;
+
+    font-size: 19px;
+
+}
+
+
+.memory-info span {
+
+    font-size: 14px;
+
+    opacity: 0.75;
+
+}
+
+
+/* Controls */
+
+.memory-controls {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 25px;
+
+    margin: 25px 0;
+}
+
+
+.memory-controls button {
+
+    width: 55px;
+    height: 55px;
+
+    border: 1px solid rgba(255,255,255,0.5);
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.2);
+
+    color: white;
+
+    font-size: 25px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+
+}
+
+
+.memory-controls button:hover {
+
+    transform: scale(1.15);
+
+    background: rgba(255,255,255,0.35);
+
+}
+
+
+.memory-controls button:active {
+
+    transform: scale(0.9);
+
+}
+
+
+/* Back button */
+
+.back-button {
+
+    border: none;
+
+    padding: 13px 28px;
+
+    border-radius: 30px;
+
+    background: white;
+
+    color: #665bc4;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+}
+
+
+.back-button:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.2);
+
+}
+
+
+/* =====================================
+   ANIMATIONS
+   ===================================== */
+
+@keyframes memoriesEnter {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(40px)
+            scale(0.95);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+@keyframes cardFloat {
+
+    0%, 100% {
+
+        transform: translateY(0);
+
+    }
+
+    50% {
+
+        transform: translateY(-8px);
+
+    }
+
+}
+
+
+@keyframes sparkle {
+
+    0%, 100% {
+
+        transform: scale(1);
+        opacity: 0.7;
+
+    }
+
+    50% {
+
+        transform: scale(1.4);
+        opacity: 1;
+
+    }
+
+}
+/* =========================================
+   OUR STORY - HIDDEN AT START
+========================================= */
+
+#ourStory {
+    display: none;
+}
+
+
+/* When JavaScript opens the story */
+#ourStory.story-active {
+    display: flex;
+}
+
+
+/* Story screen */
+
+.story-screen {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    padding: 40px 20px;
+
+    box-sizing: border-box;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    overflow-y: auto;
+
+    background:
+        linear-gradient(
+            135deg,
+            #8d82df,
+            #b6a9ee,
+            #7e91df
+        );
+
+    z-index: 9998;
+}
+
+
+/* Story content */
+
+.story-content {
+
+    width: min(750px, 92%);
+
+    margin: auto;
+
+    animation:
+        storyAppear 0.7s ease;
+}
+
+
+/* Title */
+
+.story-title {
+
+    color: white;
+
+    font-size: 15px;
+
+    letter-spacing: 6px;
+
+    margin-bottom: 15px;
+}
+
+
+/* Heading */
+
+.story-content h1 {
+
+    color: white;
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(38px, 7vw, 65px);
+
+    margin: 10px 0 30px;
+
+    text-shadow:
+        0 5px 20px rgba(0,0,0,0.2);
+}
+
+
+/* Story image */
+
+.story-photo {
+
+    display: block;
+
+    width: min(500px, 90%);
+
+    height: 350px;
+
+    margin: 0 auto 30px;
+
+    object-fit: cover;
+
+    border-radius: 28px;
+
+    border: 2px solid
+        rgba(255,255,255,0.5);
+
+    box-shadow:
+        0 20px 60px
+        rgba(40,30,100,0.3);
+}
+
+
+/* Story text card */
+
+.story-card {
+
+    width: 100%;
+
+    padding: 30px;
+
+    box-sizing: border-box;
+
+    border-radius: 28px;
+
+    background:
+        rgba(255,255,255,0.15);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.4);
+
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 20px 50px
+        rgba(40,30,100,0.2);
+
+    color: white;
+}
+
+
+/* Story paragraphs */
+
+.story-card p {
+
+    font-size: 18px;
+
+    line-height: 1.8;
+
+    margin-bottom: 22px;
+}
+
+
+/* Last paragraph */
+
+.story-card p:last-child {
+
+    margin-bottom: 0;
+}
+
+
+/* Highlight */
+
+.story-highlight {
+
+    font-family: Georgia, serif;
+
+    font-size: 23px !important;
+
+    font-weight: 600;
+}
+
+
+/* Back button */
+
+.story-screen .back-button {
+
+    margin-top: 30px;
+
+    padding: 14px 28px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background: white;
+
+    color: #6658c8;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+.story-screen .back-button:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 10px 30px
+        rgba(40,30,100,0.25);
+}
+
+
+/* Animation */
+
+@keyframes storyAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(30px)
+            scale(0.97);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .story-screen {
+
+        padding: 30px 15px;
+
+    }
+
+    .story-photo {
+
+        height: 280px;
+
+    }
+
+    .story-card {
+
+        padding: 22px 18px;
+
+    }
+
+    .story-card p {
+
+        font-size: 16px;
+
+    }
+
+    .story-highlight {
+
+        font-size: 20px !important;
+
+    }
+
+}
+
+/* =========================================
+   SCREEN CONTROL
+========================================= */
+
+/* Story is COMPLETELY hidden when website starts */
+
+#ourStory {
+    display: none;
+}
+
+
+/* Memories is COMPLETELY hidden when website starts */
+
+#memories {
+    display: none;
+}
+
+
+/* Dashboard is hidden initially */
+
+#dashboard {
+    display: none;
+}
+
+
+/* Loading is hidden initially */
+
+#loadingScreen {
+    display: none;
+}
+
+
+/* =========================================
+   STORY SCREEN
+========================================= */
+
+#ourStory.story-active {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: flex-start;
+
+    padding: 40px 20px;
+
+    box-sizing: border-box;
+
+    overflow-y: auto;
+
+    z-index: 9999;
+
+    background:
+        linear-gradient(
+            135deg,
+            #8d82df,
+            #b6a9ee,
+            #7e91df
+        );
+}
+
+
+/* =========================================
+   STORY CONTENT
+========================================= */
+
+.story-content {
+
+    width: min(750px, 92%);
+
+    margin: auto;
+
+    text-align: center;
+
+    color: white;
+
+    animation:
+        storyAppear 0.7s ease;
+}
+
+
+/* =========================================
+   STORY TITLE
+========================================= */
+
+.story-label {
+
+    font-size: 14px;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 15px;
+
+    color: white;
+}
+
+
+.story-content h1 {
+
+    font-family: Georgia, serif;
+
+    font-size:
+        clamp(38px, 7vw, 65px);
+
+    margin:
+        10px 0 30px;
+
+    color: white;
+
+    text-shadow:
+        0 5px 20px
+        rgba(0,0,0,0.2);
+}
+
+
+/* =========================================
+   STORY IMAGE
+========================================= */
+
+.story-photo {
+
+    display: block;
+
+    width: min(500px, 90%);
+
+    height: 350px;
+
+    margin:
+        0 auto 30px;
+
+    object-fit: cover;
+
+    border-radius: 28px;
+
+    border:
+        2px solid
+        rgba(255,255,255,0.5);
+
+    box-shadow:
+        0 20px 60px
+        rgba(40,30,100,0.3);
+}
+
+
+/* =========================================
+   STORY CARD
+========================================= */
+
+.story-card {
+
+    width: 100%;
+
+    padding: 30px;
+
+    box-sizing: border-box;
+
+    border-radius: 28px;
+
+    background:
+        rgba(255,255,255,0.15);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.4);
+
+    backdrop-filter:
+        blur(15px);
+
+    box-shadow:
+        0 20px 50px
+        rgba(40,30,100,0.2);
+}
+
+
+.story-card p {
+
+    font-size: 18px;
+
+    line-height: 1.8;
+
+    margin:
+        0 0 22px;
+}
+
+
+.story-card p:last-child {
+
+    margin-bottom: 0;
+}
+
+
+.story-highlight {
+
+    font-family: Georgia, serif;
+
+    font-size: 23px !important;
+
+    font-weight: 600;
+}
+
+
+/* =========================================
+   STORY BACK BUTTON
+========================================= */
+
+.story-screen .back-button {
+
+    margin-top: 30px;
+
+    padding: 14px 28px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background: white;
+
+    color: #6658c8;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.story-screen .back-button:hover {
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 10px 30px
+        rgba(40,30,100,0.25);
+}
+
+
+/* =========================================
+   STORY ANIMATION
+========================================= */
+
+@keyframes storyAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(30px)
+            scale(0.97);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+/* =========================================
+   MOBILE STORY
+========================================= */
+
+@media (max-width: 600px) {
+
+    #ourStory.story-active {
+
+        padding:
+            30px 15px;
+
+    }
+
+
+    .story-photo {
+
+        width: 90%;
+
+        height: 280px;
+
+    }
+
+
+    .story-card {
+
+        padding:
+            22px 18px;
+
+    }
+
+
+    .story-card p {
+
+        font-size: 16px;
+
+    }
+
+
+    .story-highlight {
+
+        font-size:
+            20px !important;
+
+    }
+
+}
+
+/* =========================================
+   FINAL SCREEN CONTROL
+   ONLY ONE SCREEN VISIBLE AT A TIME
+========================================= */
+
+/* HOME */
+#startScreen {
+    display: flex;
+}
+
+/* LOADING */
+#loadingScreen {
+    display: none;
+}
+
+/* DASHBOARD */
+#dashboard {
+    display: none;
+}
+
+/* MEMORIES */
+#memories {
+    display: none;
+}
+
+/* STORY */
+#ourStory {
+    display: none;
+}
+
+
+/* =========================================
+   STORY ACTIVE
+========================================= */
+
+#ourStory.story-active {
+
+    display: flex !important;
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    margin: 0;
+    padding: 40px 20px;
+
+    box-sizing: border-box;
+
+    justify-content: center;
+    align-items: flex-start;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    z-index: 10000;
+
+    background:
+        linear-gradient(
+            135deg,
+            #8d82df,
+            #b6a9ee,
+            #7e91df
+        );
+}
+
+
+/* =========================================
+   STORY CONTENT
+========================================= */
+
+#ourStory .story-content {
+
+    width: min(750px, 92%);
+
+    margin: auto;
+
+    text-align: center;
+
+    color: white;
+
+    animation: storyAppear 0.7s ease;
+}
+
+
+/* =========================================
+   STORY TITLE
+========================================= */
+
+#ourStory .story-label {
+
+    color: white;
+
+    font-size: 14px;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 15px;
+}
+
+
+#ourStory h1 {
+
+    color: white;
+
+    font-family: Georgia, serif;
+
+    font-size:
+        clamp(38px, 7vw, 65px);
+
+    margin:
+        10px 0 30px;
+
+    text-shadow:
+        0 5px 20px
+        rgba(0,0,0,0.2);
+}
+
+
+/* =========================================
+   STORY IMAGE
+========================================= */
+
+#ourStory .story-photo {
+
+    display: block;
+
+    width: min(500px, 90%);
+
+    height: 350px;
+
+    margin:
+        0 auto 30px;
+
+    object-fit: cover;
+
+    border-radius: 28px;
+
+    border:
+        2px solid
+        rgba(255,255,255,0.5);
+
+    box-shadow:
+        0 20px 60px
+        rgba(40,30,100,0.3);
+}
+
+
+/* =========================================
+   STORY CARD
+========================================= */
+
+#ourStory .story-card {
+
+    width: 100%;
+
+    padding: 30px;
+
+    box-sizing: border-box;
+
+    border-radius: 28px;
+
+    background:
+        rgba(255,255,255,0.15);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.4);
+
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 20px 50px
+        rgba(40,30,100,0.2);
+}
+
+
+#ourStory .story-card p {
+
+    color: white;
+
+    font-size: 18px;
+
+    line-height: 1.8;
+
+    margin:
+        0 0 22px;
+}
+
+
+#ourStory .story-highlight {
+
+    font-family: Georgia, serif;
+
+    font-size: 23px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================
+   STORY BACK BUTTON
+========================================= */
+
+#ourStory .back-button {
+
+    margin-top: 30px;
+
+    padding: 14px 28px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background: white;
+
+    color: #6658c8;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+/* =========================================
+   STORY ANIMATION
+========================================= */
+
+@keyframes storyAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(30px)
+            scale(0.97);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    #ourStory.story-active {
+
+        padding:
+            30px 15px;
+    }
+
+    #ourStory .story-photo {
+
+        width: 90%;
+
+        height: 280px;
+    }
+
+    #ourStory .story-card {
+
+        padding:
+            22px 18px;
+    }
+
+    #ourStory .story-card p {
+
+        font-size: 16px;
+    }
+
+    #ourStory .story-highlight {
+
+        font-size: 20px;
+    }
+}
+/* =========================================
+   OUR STORY - LITTLE PHOTO
+========================================= */
+
+.story-photo-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto 28px;
+}
+
+
+/* Little photo */
+
+.story-photo {
+    width: 220px;
+    height: 170px;
+
+    object-fit: cover;
+
+    border-radius: 22px;
+
+    border: 3px solid
+        rgba(255,255,255,0.65);
+
+    box-shadow:
+        0 15px 40px
+        rgba(40,30,100,0.3);
+
+    transform: rotate(-2deg);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+
+/* Small hover effect */
+
+.story-photo:hover {
+
+    transform:
+        rotate(0deg)
+        scale(1.05);
+
+    box-shadow:
+        0 20px 50px
+        rgba(40,30,100,0.4);
+}
+
+
+/* Story label */
+
+.story-label {
+
+    color: white;
+
+    font-size: 14px;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 15px;
+}
+
+
+/* Story title */
+
+.story-content h1 {
+
+    color: white;
+
+    font-family: Georgia, serif;
+
+    font-size:
+        clamp(32px, 6vw, 55px);
+
+    margin:
+        10px 0 20px;
+
+    text-shadow:
+        0 5px 20px
+        rgba(0,0,0,0.2);
+}
+
+
+/* Story card */
+
+.story-card {
+
+    width: min(700px, 100%);
+
+    margin: auto;
+
+    padding: 28px;
+
+    border-radius: 26px;
+
+    background:
+        rgba(255,255,255,0.16);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.4);
+
+    backdrop-filter: blur(15px);
+
+    -webkit-backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 20px 50px
+        rgba(40,30,100,0.2);
+
+    color: white;
+}
+
+
+/* Story text */
+
+.story-card p {
+
+    font-size: 17px;
+
+    line-height: 1.8;
+
+    margin-bottom: 18px;
+
+    color: white;
+}
+
+
+/* Final emotional line */
+
+.story-highlight {
+
+    font-family: Georgia, serif;
+
+    font-size: 22px !important;
+
+    font-weight: 600;
+
+    margin-bottom: 0 !important;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .story-photo {
+
+        width: 180px;
+
+        height: 140px;
+    }
+
+    .story-card {
+
+        padding: 22px 18px;
+    }
+
+    .story-card p {
+
+        font-size: 16px;
+
+        line-height: 1.7;
+    }
+
+    .story-highlight {
+
+        font-size: 20px !important;
+    }
+}
+/* =========================================
+   STORY SCREEN CONTROL
+========================================= */
+
+#ourStory {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+
+    width: 100%;
+    height: 100vh;
+
+    overflow-y: auto;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7289da,
+            #9b8de5,
+            #b9a4ed
+        );
+}
+
+
+/* Story content */
+
+#ourStory .story-content {
+    display: block;
+
+    width: min(750px, 95%);
+
+    margin: auto;
+
+    text-align: center;
+
+    color: white;
+}
+
+
+/* Make sure everything inside is visible */
+
+#ourStory .story-label,
+#ourStory h1,
+#ourStory .story-photo-wrapper,
+#ourStory .story-card,
+#ourStory .back-button {
+    position: relative;
+    z-index: 2;
 }

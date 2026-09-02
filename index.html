@@ -2,342 +2,393 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>A Little Surprise 💙</title>
 
     <link rel="stylesheet" href="style.css">
-
 </head>
-
 
 <body>
 
     <!-- =========================================
          BACKGROUND
-    ========================================== -->
-
-    <div class="stars"></div>
+    ========================================= -->
 
     <div class="bubble bubble-1"></div>
     <div class="bubble bubble-2"></div>
     <div class="bubble bubble-3"></div>
     <div class="bubble bubble-4"></div>
     <div class="bubble bubble-5"></div>
-    <div class="bubble bubble-6"></div>
-    <div class="bubble bubble-7"></div>
-
 
 
     <!-- =========================================
-         WELCOME / FRONT PAGE
-    ========================================== -->
+         WELCOME SCREEN
+    ========================================= -->
 
-    <main
-        class="welcome-card"
-        id="startScreen">
+    <main id="startScreen" class="screen welcome-screen">
 
+        <div class="welcome-card">
 
-        <!-- Decorative star -->
+            <div class="top-decoration">✦</div>
 
-        <div class="top-decoration">
-            ✦
+            <p class="little-title">
+                ✦ A LITTLE SURPRISE FOR YOU ✦
+            </p>
+
+            <h1>
+                Hey Keerthi!
+            </h1>
+
+            <div class="divider">
+                <span></span>
+                <b>✦</b>
+                <span></span>
+            </div>
+
+            <p class="intro">
+                I made something special for you...
+            </p>
+
+            <p class="message">
+                It's not just a website.
+                <br>
+                It's a small collection of memories,
+                <br>
+                laughter and feelings. ✦
+            </p>
+
+            <button
+                class="surprise-button"
+                type="button"
+                onclick="startSurprise()">
+
+                OPEN YOUR SURPRISE ✦
+
+            </button>
+
+            <p class="made-by">
+                Made with ♡ by <i>Sam</i>
+            </p>
+
         </div>
-
-
-        <!-- Small heading -->
-
-        <p class="little-title">
-            ✦ &nbsp; A LITTLE SURPRISE FOR YOU &nbsp; ✦
-        </p>
-
-
-        <!-- Main heading -->
-
-        <h1>
-            Hey Keerthi!
-        </h1>
-
-
-        <!-- Divider -->
-
-        <div class="divider">
-
-            <span></span>
-
-            <b>✦</b>
-
-            <span></span>
-
-        </div>
-
-
-        <!-- Introduction -->
-
-        <p class="intro">
-            I made something special for you...
-        </p>
-
-
-        <!-- Message -->
-
-        <p class="message">
-
-            It's not just a website.
-
-            <br>
-
-            It's a small collection of memories,
-
-            <br>
-
-            laughter and feelings.
-
-            <span class="small-sparkle">
-                ✦
-            </span>
-
-        </p>
-
-
-        <!-- Surprise Button -->
-
-        <button
-            class="surprise-button"
-            type="button"
-            onclick="startSurprise()">
-
-            <span>
-                OPEN YOUR SURPRISE
-            </span>
-
-            <b>
-                ✦
-            </b>
-
-        </button>
-
-
-        <!-- Footer -->
-
-        <p class="made-by">
-
-            <span>
-                ────
-            </span>
-
-            Made with ♡ by
-
-            <i>
-                Sam
-            </i>
-
-            <span>
-                ────
-            </span>
-
-        </p>
 
     </main>
 
 
-
     <!-- =========================================
-         FRIENDSHIP.EXE LOADING SCREEN
-    ========================================== -->
+         LOADING SCREEN
+    ========================================= -->
 
     <section
-        class="loading-screen"
-        id="loadingScreen">
-
+        id="loadingScreen"
+        class="screen loading-screen">
 
         <div class="loading-card">
-
-
-            <!-- Icon -->
 
             <div class="loading-symbol">
                 ✦
             </div>
 
-
-            <!-- Program name -->
-
             <h2>
                 Friendship.exe
             </h2>
-
-
-            <!-- Loading message -->
 
             <p id="loadingText">
                 Initializing friendship...
             </p>
 
-
-            <!-- Progress bar -->
-
             <div class="progress-container">
 
                 <div
-                    class="progress-bar"
-                    id="progressBar">
+                    id="progressBar"
+                    class="progress-bar">
+                </div>
+
+            </div>
+
+            <p id="percentage">
+                0%
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         DASHBOARD
+    ========================================= -->
+
+    <section
+        id="dashboard"
+        class="screen dashboard">
+
+        <div class="dashboard-content">
+
+            <p class="little-title">
+                ✦ KEERTHI.EXE ✦
+            </p>
+
+            <h2>
+                Happy Birthday, Keerthi! 🎂
+            </h2>
+
+            <p class="birthday-date">
+                03 • 09 • 2026
+            </p>
+
+
+            <div class="dashboard-buttons">
+
+                <!-- MEMORIES -->
+
+                <button
+                    class="dashboard-card"
+                    type="button"
+                    onclick="openMemories()">
+
+                    <span>📸</span>
+
+                    <strong>
+                        Our Memories
+                    </strong>
+
+                    <small>
+                        Our beautiful moments
+                    </small>
+
+                </button>
+
+
+                <!-- STORY -->
+
+                <button
+                    class="dashboard-card"
+                    type="button"
+                    onclick="openStory()">
+
+                    <span>🫂</span>
+
+                    <strong>
+                        Our Story
+                    </strong>
+
+                    <small>
+                        How it all started
+                    </small>
+
+                </button>
+
+
+                <!-- FRIENDSHIP PYTHON -->
+
+                <button
+                    class="dashboard-card"
+                    type="button">
+
+                    <span>💻</span>
+
+                    <strong>
+                        Friendship.py
+                    </strong>
+
+                    <small>
+                        Our friendship in code
+                    </small>
+
+                </button>
+
+
+                <!-- MESSAGE -->
+
+                <button
+                    class="dashboard-card"
+                    type="button">
+
+                    <span>💌</span>
+
+                    <strong>
+                        My Message
+                    </strong>
+
+                    <small>
+                        Something from my heart
+                    </small>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         OUR MEMORIES
+    ========================================= -->
+
+    <section
+        id="memories"
+        class="screen memories-screen">
+
+        <div class="page-content">
+
+            <p class="page-label">
+                ✦ OUR MEMORIES ✦
+            </p>
+
+            <h1>
+                Little moments,<br>
+                big memories 💙
+            </h1>
+
+
+            <div class="memory-card">
+
+                <div class="memory-image-wrapper">
+
+                    <img
+                        id="memoryImage"
+                        src="images/IMG-20260326-WA0065.jpg.jpeg"
+                        alt="Our Memory">
+
+                </div>
+
+                <div class="memory-info">
+
+                    <p id="memoryCaption">
+                        One of my favourite memories with you 💙
+                    </p>
+
+                    <span id="memoryCounter">
+                        1 / 3
+                    </span>
+
                 </div>
 
             </div>
 
 
-            <!-- Percentage -->
+            <div class="memory-controls">
 
-            <p
-                class="percentage"
-                id="percentage">
+                <button
+                    type="button"
+                    onclick="previousMemory()">
+                    ←
+                </button>
 
-                0%
+                <button
+                    type="button"
+                    onclick="nextMemory()">
+                    →
+                </button>
 
-            </p>
+            </div>
 
+
+            <button
+                class="back-button"
+                type="button"
+                onclick="closeMemories()">
+
+                ← Back to Dashboard
+
+            </button>
 
         </div>
 
     </section>
-
 
 
     <!-- =========================================
-         BIRTHDAY DASHBOARD
-    ========================================== -->
+         OUR STORY
+         HIDDEN AT START
+    ========================================= -->
 
     <section
-        class="dashboard"
-        id="dashboard">
+        id="ourStory"
+        class="screen story-screen">
+
+        <div class="page-content story-content">
+
+            <p class="page-label">
+                ✦ OUR STORY ✦
+            </p>
+
+            <h1>
+                It Started With A Conversation...
+            </h1>
 
 
-        <!-- Dashboard heading -->
+            <!-- LITTLE PHOTO -->
 
-        <p class="little-title">
-            ✦ KEERTHI.EXE ✦
-        </p>
+            <div class="story-photo-wrapper">
 
+                <img
+                    class="story-photo"
+                    src="images/story.jpg"
+                    alt="Our Story">
 
-        <h2>
-            Happy Birthday, Keerthi! 🎂
-        </h2>
-
-
-        <p>
-            03 • 09 • 2026
-        </p>
+            </div>
 
 
+            <!-- STORY MATTER -->
 
-        <!-- =====================================
-             DASHBOARD BUTTONS
-        ====================================== -->
+            <div class="story-card">
 
-        <div class="dashboard-buttons">
+                <p>
+                    It all started with a simple conversation
+                    in January, during our 1st year of B.Tech. ✨
+                </p>
 
+                <p>
+                    At first, we weren't really close.
+                    But slowly, conversations turned into
+                    laughter, little fights, and countless
+                    memories. 💙
+                </p>
 
-            <!-- Memories -->
+                <p>
+                    We had good days and not-so-good days.
+                    But every moment became a part of
+                    our story.
+                </p>
+
+                <p class="story-highlight">
+
+                    We didn't become best friends in a day...
+
+                    <br><br>
+
+                    We slowly became <b>US</b>. 🫂♾️
+
+                </p>
+
+            </div>
+
 
             <button
-                type="button">
+                class="back-button"
+                type="button"
+                onclick="closeStory()">
 
-                <span>
-                    📸
-                </span>
-
-                <strong>
-                    Our Memories
-                </strong>
-
-                <small>
-                    Our beautiful moments
-                </small>
+                ← Back to Dashboard
 
             </button>
-
-
-
-            <!-- Story -->
-
-            <button
-                type="button">
-
-                <span>
-                    🫂
-                </span>
-
-                <strong>
-                    Our Story
-                </strong>
-
-                <small>
-                    How it all started
-                </small>
-
-            </button>
-
-
-
-            <!-- Friendship Python -->
-
-            <button
-                type="button">
-
-                <span>
-                    💻
-                </span>
-
-                <strong>
-                    Friendship.py
-                </strong>
-
-                <small>
-                    Our friendship in code
-                </small>
-
-            </button>
-
-
-
-            <!-- Message -->
-
-            <button
-                type="button">
-
-                <span>
-                    💌
-                </span>
-
-                <strong>
-                    My Message
-                </strong>
-
-                <small>
-                    Something from my heart
-                </small>
-
-            </button>
-
 
         </div>
 
-
     </section>
-
 
 
     <!-- =========================================
          JAVASCRIPT
-    ========================================== -->
+    ========================================= -->
 
     <script src="script.js"></script>
-
 
 </body>
 
