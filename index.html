@@ -2,88 +2,134 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>A Little Surprise 💙</title>
 
     <link rel="stylesheet" href="style.css">
+
 </head>
+
 
 <body>
 
     <!-- =========================================
          BACKGROUND
-    ========================================= -->
+    ========================================== -->
+
+    <div class="stars"></div>
 
     <div class="bubble bubble-1"></div>
     <div class="bubble bubble-2"></div>
     <div class="bubble bubble-3"></div>
     <div class="bubble bubble-4"></div>
     <div class="bubble bubble-5"></div>
+    <div class="bubble bubble-6"></div>
+    <div class="bubble bubble-7"></div>
 
 
     <!-- =========================================
-         WELCOME SCREEN
-    ========================================= -->
+         WELCOME / FRONT PAGE
+    ========================================== -->
 
-    <main id="startScreen" class="screen welcome-screen">
+    <main
+        class="welcome-card"
+        id="startScreen">
 
-        <div class="welcome-card">
+        <div class="top-decoration">
+            ✦
+        </div>
 
-            <div class="top-decoration">✦</div>
+        <p class="little-title">
+            ✦ &nbsp; A LITTLE SURPRISE FOR YOU &nbsp; ✦
+        </p>
 
-            <p class="little-title">
-                ✦ A LITTLE SURPRISE FOR YOU ✦
-            </p>
+        <h1>
+            Hey Keerthi!
+        </h1>
 
-            <h1>
-                Hey Keerthi!
-            </h1>
+        <div class="divider">
 
-            <div class="divider">
-                <span></span>
-                <b>✦</b>
-                <span></span>
-            </div>
+            <span></span>
 
-            <p class="intro">
-                I made something special for you...
-            </p>
+            <b>✦</b>
 
-            <p class="message">
-                It's not just a website.
-                <br>
-                It's a small collection of memories,
-                <br>
-                laughter and feelings. ✦
-            </p>
-
-            <button
-                class="surprise-button"
-                type="button"
-                onclick="startSurprise()">
-
-                OPEN YOUR SURPRISE ✦
-
-            </button>
-
-            <p class="made-by">
-                Made with ♡ by <i>Sam</i>
-            </p>
+            <span></span>
 
         </div>
+
+        <p class="intro">
+            I made something special for you...
+        </p>
+
+        <p class="message">
+
+            It's not just a website.
+
+            <br>
+
+            It's a small collection of memories,
+
+            <br>
+
+            laughter and feelings.
+
+            <span class="small-sparkle">
+                ✦
+            </span>
+
+        </p>
+
+
+        <button
+            class="surprise-button"
+            type="button"
+            onclick="startSurprise()">
+
+            <span>
+                OPEN YOUR SURPRISE
+            </span>
+
+            <b>
+                ✦
+            </b>
+
+        </button>
+
+
+        <p class="made-by">
+
+            <span>
+                ────
+            </span>
+
+            Made with ♡ by
+
+            <i>
+                Sam
+            </i>
+
+            <span>
+                ────
+            </span>
+
+        </p>
 
     </main>
 
 
+
     <!-- =========================================
-         LOADING SCREEN
-    ========================================= -->
+         FRIENDSHIP.EXE LOADING SCREEN
+    ========================================== -->
 
     <section
-        id="loadingScreen"
-        class="screen loading-screen">
+        class="loading-screen"
+        id="loadingScreen">
 
         <div class="loading-card">
 
@@ -102,160 +148,207 @@
             <div class="progress-container">
 
                 <div
-                    id="progressBar"
-                    class="progress-bar">
+                    class="progress-bar"
+                    id="progressBar">
                 </div>
 
             </div>
 
-            <p id="percentage">
+            <p
+                class="percentage"
+                id="percentage">
+
                 0%
+
             </p>
 
         </div>
 
     </section>
+
 
 
     <!-- =========================================
-         DASHBOARD
-    ========================================= -->
+         BIRTHDAY DASHBOARD
+    ========================================== -->
 
     <section
-        id="dashboard"
-        class="screen dashboard">
+        class="dashboard"
+        id="dashboard">
 
-        <div class="dashboard-content">
+        <p class="little-title">
+            ✦ KEERTHI.EXE ✦
+        </p>
 
-            <p class="little-title">
-                ✦ KEERTHI.EXE ✦
-            </p>
+        <h2>
+            Happy Birthday, Keerthi! 🎂
+        </h2>
 
-            <h2>
-                Happy Birthday, Keerthi! 🎂
-            </h2>
-
-            <p class="birthday-date">
-                03 • 09 • 2026
-            </p>
+        <p>
+            03 • 09 • 2026
+        </p>
 
 
-            <div class="dashboard-buttons">
+        <!-- =====================================
+             DASHBOARD BUTTONS
+        ====================================== -->
 
-                <!-- MEMORIES -->
-
-                <button
-                    class="dashboard-card"
-                    type="button"
-                    onclick="openMemories()">
-
-                    <span>📸</span>
-
-                    <strong>
-                        Our Memories
-                    </strong>
-
-                    <small>
-                        Our beautiful moments
-                    </small>
-
-                </button>
+        <div class="dashboard-buttons">
 
 
-                <!-- STORY -->
+            <!-- Memories -->
 
-                <button
-                    class="dashboard-card"
-                    type="button"
-                    onclick="openStory()">
+            <button
+                type="button"
+                onclick="openMemories()">
 
-                    <span>🫂</span>
+                <span>
+                    📸
+                </span>
 
-                    <strong>
-                        Our Story
-                    </strong>
+                <strong>
+                    Our Memories
+                </strong>
 
-                    <small>
-                        How it all started
-                    </small>
+                <small>
+                    Our beautiful moments
+                </small>
 
-                </button>
-
-
-                <!-- FRIENDSHIP PYTHON -->
-
-                <button
-                    class="dashboard-card"
-                    type="button">
-
-                    <span>💻</span>
-
-                    <strong>
-                        Friendship.py
-                    </strong>
-
-                    <small>
-                        Our friendship in code
-                    </small>
-
-                </button>
+            </button>
 
 
-                <!-- MESSAGE -->
 
-                <button
-                    class="dashboard-card"
-                    type="button">
+            <!-- Story -->
 
-                    <span>💌</span>
+            <button
+                type="button"
+                onclick="openStory()">
 
-                    <strong>
-                        My Message
-                    </strong>
+                <span>
+                    🫂
+                </span>
 
-                    <small>
-                        Something from my heart
-                    </small>
+                <strong>
+                    Our Story
+                </strong>
 
-                </button>
+                <small>
+                    How it all started
+                </small>
 
-            </div>
+            </button>
+
+
+
+            <!-- Friendship Python -->
+
+            <button
+                type="button"
+                onclick="openFriendship()">
+
+                <span>
+                    💻
+                </span>
+
+                <strong>
+                    Friendship.py
+                </strong>
+
+                <small>
+                    Our friendship in code
+                </small>
+
+            </button>
+
+
+
+            <!-- Message -->
+
+            <button
+                type="button"
+                onclick="openMessage()">
+
+                <span>
+                    💌
+                </span>
+
+                <strong>
+                    My Message
+                </strong>
+
+                <small>
+                    Something from my heart
+                </small>
+
+            </button>
 
         </div>
 
     </section>
+
 
 
     <!-- =========================================
          OUR MEMORIES
-    ========================================= -->
+    ========================================== -->
 
     <section
         id="memories"
-        class="screen memories-screen">
+        class="memories-screen">
 
-        <div class="page-content">
+        <div class="memories-content">
 
-            <p class="page-label">
-                ✦ OUR MEMORIES ✦
+            <div class="memory-heading">
+
+                <span>
+                    ✦
+                </span>
+
+                <h1>
+                    Our Memories
+                </h1>
+
+                <span>
+                    ✦
+                </span>
+
+            </div>
+
+
+            <p class="memory-subtitle">
+                Little moments, big memories 💙
             </p>
 
-            <h1>
-                Little moments,<br>
-                big memories 💙
-            </h1>
 
+
+            <!-- MEMORY CARD -->
 
             <div class="memory-card">
 
                 <div class="memory-image-wrapper">
 
+                    <!--
+                        IMPORTANT:
+                        This is a relative path.
+
+                        Your folder should be:
+
+                        bd/
+                        ├── index.html
+                        ├── style.css
+                        ├── script.js
+                        └── image/
+                            └── IMG-20260326-WA0065.jpg.jpeg
+                    -->
+
                     <img
                         id="memoryImage"
-                        src="C:\Users\samue\OneDrive\Desktop\bd\image\pi.jpeg"
-                        alt="Our Memory">
+                        src="image/IMG-20260326-WA0065.jpg.jpeg"
+                        alt="Our Memory"
+                        loading="lazy">
 
                 </div>
+
 
                 <div class="memory-info">
 
@@ -264,7 +357,7 @@
                     </p>
 
                     <span id="memoryCounter">
-                        1 / 3
+                        1 / 1
                     </span>
 
                 </div>
@@ -272,26 +365,39 @@
             </div>
 
 
+
+            <!-- MEMORY CONTROLS -->
+
             <div class="memory-controls">
 
                 <button
                     type="button"
-                    onclick="previousMemory()">
+                    onclick="previousMemory()"
+                    aria-label="Previous memory">
+
                     ←
+
                 </button>
+
 
                 <button
                     type="button"
-                    onclick="nextMemory()">
+                    onclick="nextMemory()"
+                    aria-label="Next memory">
+
                     →
+
                 </button>
 
             </div>
 
 
+
+            <!-- BACK -->
+
             <button
-                class="back-button"
                 type="button"
+                class="back-button"
                 onclick="closeMemories()">
 
                 ← Back to Dashboard
@@ -303,76 +409,62 @@
     </section>
 
 
+
     <!-- =========================================
          OUR STORY
-         HIDDEN AT START
-    ========================================= -->
+    ========================================== -->
 
     <section
-        id="ourStory"
-        class="screen story-screen">
+        id="story"
+        class="memories-screen">
 
-        <div class="page-content story-content">
+        <div class="memories-content">
 
-            <p class="page-label">
-                ✦ OUR STORY ✦
+            <div class="memory-heading">
+
+                <span>
+                    ✦
+                </span>
+
+                <h1>
+                    Our Story
+                </h1>
+
+                <span>
+                    ✦
+                </span>
+
+            </div>
+
+            <p class="memory-subtitle">
+                Some stories are worth keeping forever 🫂
             </p>
 
-            <h1>
-                It Started With A Conversation...
-            </h1>
+            <div class="memory-card">
 
+                <div class="memory-info">
 
-            <!-- LITTLE PHOTO -->
+                    <p>
+                        From random conversations to unforgettable
+                        memories, our friendship slowly became one
+                        of those little things that makes life more
+                        special. 💙
+                    </p>
 
-            <div class="story-photo-wrapper">
+                    <br>
 
-                <img
-                    class="story-photo"
-                    src="image/story.jpg"
-                    alt="Our Story">
+                    <p>
+                        No matter how many years pass, I hope our
+                        friendship always stays this beautiful. ✨
+                    </p>
 
-            </div>
-
-
-            <!-- STORY MATTER -->
-
-            <div class="story-card">
-
-                <p>
-                    It all started with a simple conversation
-                    in January, during our 1st year of B.Tech. ✨
-                </p>
-
-                <p>
-                    At first, we weren't really close.
-                    But slowly, conversations turned into
-                    laughter, little fights, and countless
-                    memories. 💙
-                </p>
-
-                <p>
-                    We had good days and not-so-good days.
-                    But every moment became a part of
-                    our story.
-                </p>
-
-                <p class="story-highlight">
-
-                    We didn't become best friends in a day...
-
-                    <br><br>
-
-                    We slowly became <b>US</b>. 🫂♾️
-
-                </p>
+                </div>
 
             </div>
-
 
             <button
-                class="back-button"
                 type="button"
+                class="back-button"
                 onclick="closeStory()">
 
                 ← Back to Dashboard
@@ -384,12 +476,258 @@
     </section>
 
 
+
+    <!-- =========================================
+         FRIENDSHIP.PY
+    ========================================== -->
+
+    <section
+        id="friendship"
+        class="memories-screen">
+
+        <div class="memories-content">
+
+            <div class="memory-heading">
+
+                <span>
+                    ✦
+                </span>
+
+                <h1>
+                    Friendship.py
+                </h1>
+
+                <span>
+                    ✦
+                </span>
+
+            </div>
+
+            <p class="memory-subtitle">
+                Our friendship, written in code 💻
+            </p>
+
+            <div class="memory-card">
+
+                <div class="memory-info">
+
+<pre>
+friendship = {
+    "name": "Keerthi",
+    "memories": "countless",
+    "laughter": "unlimited",
+    "support": True,
+    "forever": True
+}
+
+if friendship["forever"]:
+    print("Best friends forever 💙")
+</pre>
+
+                </div>
+
+            </div>
+
+            <button
+                type="button"
+                class="back-button"
+                onclick="closeFriendship()">
+
+                ← Back to Dashboard
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         MY MESSAGE
+    ========================================== -->
+
+    <section
+        id="myMessage"
+        class="memories-screen">
+
+        <div class="memories-content">
+
+            <div class="memory-heading">
+
+                <span>
+                    ✦
+                </span>
+
+                <h1>
+                    My Message
+                </h1>
+
+                <span>
+                    ✦
+                </span>
+
+            </div>
+
+            <p class="memory-subtitle">
+                A few words from my heart 💌
+            </p>
+
+            <div class="memory-card">
+
+                <div class="memory-info">
+
+                    <p>
+                        Happy Birthday, Keerthi! 💙
+                    </p>
+
+                    <br>
+
+                    <p>
+                        Thank you for being a beautiful part of my
+                        life and for all the memories, laughter and
+                        moments we've shared.
+                    </p>
+
+                    <br>
+
+                    <p>
+                        I hope this new year of your life brings you
+                        happiness, success and countless reasons to
+                        smile. ✨
+                    </p>
+
+                    <br>
+
+                    <p>
+                        No matter where life takes us, I hope our
+                        friendship remains special. 🫂💙
+                    </p>
+
+                </div>
+
+            </div>
+
+            <button
+                type="button"
+                class="back-button"
+                onclick="closeMessage()">
+
+                ← Back to Dashboard
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+
     <!-- =========================================
          JAVASCRIPT
-    ========================================= -->
+    ========================================== -->
 
     <script src="script.js"></script>
+<!-- =========================================
+     FRIENDSHIP CODE SCREEN
+========================================= -->
 
+<section id="friendshipCode" class="code-screen">
+
+    <div class="code-content">
+
+        <div class="code-header">
+
+            <span>✦</span>
+
+            <h1>Friendship.py</h1>
+
+            <span>✦</span>
+
+        </div>
+
+        <p class="code-subtitle">
+            A little program written with ❤️
+        </p>
+
+
+        <!-- Code Window -->
+
+        <div class="code-window">
+
+            <div class="code-window-top">
+
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+
+                <span class="file-name">
+                    friendship.c
+                </span>
+
+            </div>
+
+
+            <pre><code><span class="code-purple">#include</span> <span class="code-green">&lt;stdio.h&gt;</span>
+
+<span class="code-purple">int</span> main() {
+
+    <span class="code-purple">int</span> priority[] = {1, 2, 3, 4, 5};
+
+    <span class="code-purple">int</span> i = 0;
+
+    printf(<span class="code-orange">"She is my %d priority.\n"</span>,
+           priority[i]);
+
+    <span class="code-purple">return</span> 0;
+}</code></pre>
+
+        </div>
+
+
+        <!-- Output -->
+
+        <div class="code-output">
+
+            <p class="output-title">
+                ▶ OUTPUT
+            </p>
+
+            <p>
+                She is my <strong>1</strong> priority. 💙
+            </p>
+
+        </div>
+
+
+        <!-- Message -->
+
+        <div class="code-message">
+
+            <p>
+                If friendship was a program...
+            </p>
+
+            <p class="highlight-code">
+                You would always be my priority. 💙
+            </p>
+
+        </div>
+
+
+        <!-- Back -->
+
+        <button
+            class="back-button"
+            onclick="closeFriendshipCode()">
+
+            ← Back to Dashboard
+
+        </button>
+
+    </div>
+
+</section>
 </body>
 
 </html>

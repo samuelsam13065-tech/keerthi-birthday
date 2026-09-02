@@ -1,17 +1,6 @@
-/* HIDE STORY UNTIL BUTTON IS CLICKED */
-#ourStory {
-    display: none !important;
-}
-/* =========================
-   SCREEN CONTROL
-========================= */
-
-.hidden {
-    display: none !important;
-}
-/* ================================
-   BASIC SETUP
-================================ */
+/* =========================================
+   RESET
+========================================= */
 
 * {
     margin: 0;
@@ -19,52 +8,85 @@
     box-sizing: border-box;
 }
 
+
+html,
 body {
-    min-height: 100vh;
-    overflow: hidden;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    font-family: "Segoe UI", Arial, sans-serif;
-
-    background: linear-gradient(
-        120deg,
-        #7289da,
-        #9b8de5,
-        #b9a4ed,
-        #7eb9e8
-    );
-
-    background-size: 400% 400%;
-
-    animation: backgroundMove 10s ease infinite;
+    width: 100%;
+    min-height: 100%;
 }
 
 
-/* ================================
-   FLOATING BUBBLES
-================================ */
+body {
+    min-height: 100vh;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    overflow-x: hidden;
+
+    background:
+        linear-gradient(
+            120deg,
+            #7289da,
+            #9b8de5,
+            #b9a4ed,
+            #7eb9e8
+        );
+
+    background-size: 400% 400%;
+
+    animation:
+        backgroundMove 12s ease infinite;
+}
+
+
+/* =========================================
+   BACKGROUND
+========================================= */
+
+.stars {
+    position: fixed;
+
+    top: 25px;
+    left: 25px;
+
+    color: white;
+
+    font-size: 30px;
+
+    z-index: 1;
+
+    animation:
+        starPulse 2s ease-in-out infinite;
+}
+
 
 .bubble {
     position: fixed;
 
     border-radius: 50%;
 
-    background: rgba(255,255,255,0.18);
+    background:
+        rgba(255,255,255,0.16);
 
-    border: 2px solid rgba(255,255,255,0.35);
+    border:
+        2px solid
+        rgba(255,255,255,0.3);
 
     box-shadow:
-        inset 5px 5px 15px rgba(255,255,255,0.3),
-        0 10px 30px rgba(40,50,120,0.15);
+        inset 5px 5px 20px
+        rgba(255,255,255,0.25),
+
+        0 10px 30px
+        rgba(40,50,120,0.15);
 
     pointer-events: none;
+
+    z-index: 0;
 }
 
-
-/* Bubble 1 */
 
 .bubble-1 {
     width: 150px;
@@ -73,11 +95,10 @@ body {
     left: 5%;
     top: 10%;
 
-    animation: bubble1 7s ease-in-out infinite;
+    animation:
+        bubbleFloat1 8s ease-in-out infinite;
 }
 
-
-/* Bubble 2 */
 
 .bubble-2 {
     width: 70px;
@@ -86,11 +107,10 @@ body {
     right: 15%;
     top: 12%;
 
-    animation: bubble2 5s ease-in-out infinite;
+    animation:
+        bubbleFloat2 6s ease-in-out infinite;
 }
 
-
-/* Bubble 3 */
 
 .bubble-3 {
     width: 45px;
@@ -99,11 +119,10 @@ body {
     left: 18%;
     bottom: 18%;
 
-    animation: bubble3 6s ease-in-out infinite;
+    animation:
+        bubbleFloat3 7s ease-in-out infinite;
 }
 
-
-/* Bubble 4 */
 
 .bubble-4 {
     width: 130px;
@@ -112,11 +131,10 @@ body {
     right: 5%;
     bottom: 12%;
 
-    animation: bubble4 8s ease-in-out infinite;
+    animation:
+        bubbleFloat4 9s ease-in-out infinite;
 }
 
-
-/* Bubble 5 */
 
 .bubble-5 {
     width: 35px;
@@ -125,11 +143,10 @@ body {
     right: 30%;
     bottom: 15%;
 
-    animation: bubble5 4s ease-in-out infinite;
+    animation:
+        bubbleFloat3 5s ease-in-out infinite;
 }
 
-
-/* Bubble 6 */
 
 .bubble-6 {
     width: 25px;
@@ -138,11 +155,10 @@ body {
     left: 35%;
     top: 15%;
 
-    animation: bubble6 3s ease-in-out infinite;
+    animation:
+        bubbleFloat2 4s ease-in-out infinite;
 }
 
-
-/* Bubble 7 */
 
 .bubble-7 {
     width: 60px;
@@ -151,113 +167,96 @@ body {
     left: 8%;
     bottom: 10%;
 
-    animation: bubble7 6s ease-in-out infinite;
+    animation:
+        bubbleFloat1 7s ease-in-out infinite;
 }
 
 
-/* ================================
-   MAIN CARD
-================================ */
+/* =========================================
+   WELCOME SCREEN
+========================================= */
 
 .welcome-card {
 
     position: relative;
+
     z-index: 10;
 
-    width: 850px;
-    max-width: 88%;
+    width: min(850px, 90%);
 
     min-height: 600px;
 
-    padding: 70px;
+    margin: 30px auto;
+
+    padding: 60px 40px;
 
     display: flex;
+
     flex-direction: column;
 
     justify-content: center;
+
     align-items: center;
 
     text-align: center;
 
-    background: rgba(255,255,255,0.25);
+    color: white;
 
-    border: 1px solid rgba(255,255,255,0.5);
+    background:
+        rgba(255,255,255,0.22);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.45);
 
     border-radius: 35px;
 
-    backdrop-filter: blur(20px);
+    backdrop-filter:
+        blur(20px);
 
     box-shadow:
-        0 30px 80px rgba(40,50,130,0.25);
+        0 30px 80px
+        rgba(40,50,130,0.25);
 
-    /* VERY VISIBLE ENTRY */
-
-    animation: cardEnter 1.5s ease-out;
+    animation:
+        cardEnter 1s ease;
 }
 
-
-/* ================================
-   TOP STAR
-================================ */
 
 .top-decoration {
 
-    font-size: 30px;
-
-    color: white;
+    font-size: 35px;
 
     margin-bottom: 20px;
 
-    animation: starPulse 2s ease-in-out infinite;
+    animation:
+        starPulse 2s infinite;
 }
 
 
-/* ================================
-   SMALL TITLE
-================================ */
-
 .little-title {
-
-    color: white;
 
     font-size: 14px;
 
     letter-spacing: 5px;
 
     margin-bottom: 20px;
-
-    opacity: 0;
-
-    animation: textAppear 1s 0.5s forwards;
 }
 
-
-/* ================================
-   MAIN NAME
-================================ */
 
 .welcome-card h1 {
 
     font-family: Georgia, serif;
 
-    font-size: 80px;
-
-    color: white;
+    font-size: clamp(45px, 8vw, 80px);
 
     margin-bottom: 25px;
 
-    opacity: 0;
-
-    animation: nameAppear 1.3s 0.9s forwards;
-
     text-shadow:
-        0 10px 25px rgba(50,50,130,0.25);
+        0 10px 25px
+        rgba(50,50,130,0.25);
 }
 
-
-/* ================================
-   DIVIDER
-================================ */
 
 .divider {
 
@@ -268,10 +267,6 @@ body {
     gap: 15px;
 
     margin-bottom: 25px;
-
-    opacity: 0;
-
-    animation: dividerAppear 1s 1.5s forwards;
 }
 
 
@@ -281,39 +276,18 @@ body {
 
     height: 2px;
 
-    background: rgba(255,255,255,0.7);
+    background:
+        rgba(255,255,255,0.7);
 }
 
-
-.divider b {
-
-    color: white;
-
-    animation: starPulse 2s infinite;
-}
-
-
-/* ================================
-   INTRO
-================================ */
 
 .intro {
 
-    font-size: 25px;
-
-    color: white;
+    font-size: 24px;
 
     margin-bottom: 15px;
-
-    opacity: 0;
-
-    animation: textAppear 1s 1.8s forwards;
 }
 
-
-/* ================================
-   MESSAGE
-================================ */
 
 .message {
 
@@ -321,19 +295,9 @@ body {
 
     line-height: 1.8;
 
-    color: #f4f5ff;
-
     margin-bottom: 35px;
-
-    opacity: 0;
-
-    animation: textAppear 1s 2.1s forwards;
 }
 
-
-/* ================================
-   BUTTON
-================================ */
 
 .surprise-button {
 
@@ -341,9 +305,9 @@ body {
 
     overflow: hidden;
 
-    padding: 18px 40px;
+    min-width: 300px;
 
-    min-width: 320px;
+    padding: 17px 35px;
 
     border: none;
 
@@ -351,7 +315,7 @@ body {
 
     color: white;
 
-    font-size: 16px;
+    font-size: 15px;
 
     font-weight: bold;
 
@@ -359,82 +323,891 @@ body {
 
     cursor: pointer;
 
-    background: linear-gradient(
-        90deg,
-        #54b9ee,
-        #8c7be8,
-        #df83b7
-    );
+    background:
+        linear-gradient(
+            90deg,
+            #54b9ee,
+            #8c7be8,
+            #df83b7
+        );
 
     background-size: 200% 200%;
 
     box-shadow:
-        0 10px 30px rgba(50,70,170,0.3);
-
-    opacity: 0;
+        0 10px 30px
+        rgba(50,70,170,0.3);
 
     animation:
-        buttonAppear 1s 2.5s forwards,
-        buttonColor 4s 3.5s ease infinite,
-        buttonGlow 2s 4s ease-in-out infinite;
+        buttonColor 4s ease infinite;
 }
 
 
 .surprise-button:hover {
 
-    transform: scale(1.08);
-
+    transform:
+        scale(1.06);
 }
 
 
-/* Moving shine */
+.surprise-button span {
 
-.surprise-button::after {
-
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: -100%;
-
-    width: 60%;
-    height: 100%;
-
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255,255,255,0.7),
-        transparent
-    );
-
-    transform: skewX(-20deg);
-
-    animation: shine 3s 4s infinite;
+    margin-left: 10px;
 }
 
-
-/* ================================
-   FOOTER
-================================ */
 
 .made-by {
 
     margin-top: 30px;
 
-    color: rgba(255,255,255,0.75);
-
     font-size: 14px;
 
-    opacity: 0;
-
-    animation: textAppear 1s 2.9s forwards;
+    opacity: 0.75;
 }
 
 
-/* ================================
-   BACKGROUND ANIMATION
-================================ */
+/* =========================================
+   LOADING
+========================================= */
+
+.loading-screen {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1000;
+
+    display: none;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #aaa1ed,
+            #7775d5 45%,
+            #555fbd
+        );
+}
+
+
+.loading-card {
+
+    width: min(500px, 90%);
+
+    padding: 45px;
+
+    text-align: center;
+
+    color: white;
+
+    background:
+        rgba(20,25,60,0.55);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.35);
+
+    border-radius: 25px;
+
+    backdrop-filter:
+        blur(20px);
+
+    box-shadow:
+        0 30px 80px
+        rgba(20,20,80,0.4);
+}
+
+
+.loading-symbol {
+
+    font-size: 45px;
+
+    margin-bottom: 15px;
+
+    animation:
+        starPulse 1.5s infinite;
+}
+
+
+.loading-card h2 {
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    margin-bottom: 20px;
+}
+
+
+.loading-card p {
+
+    font-family:
+        "Courier New",
+        monospace;
+}
+
+
+.progress-container {
+
+    width: 100%;
+
+    height: 12px;
+
+    margin-top: 30px;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255,255,255,0.15);
+}
+
+
+.progress-bar {
+
+    width: 0%;
+
+    height: 100%;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #66d9ff,
+            #a889ff,
+            #ff9fd8
+        );
+
+    transition:
+        width 0.05s linear;
+}
+
+
+.percentage {
+
+    margin-top: 12px;
+
+    text-align: right;
+}
+
+
+/* =========================================
+   DASHBOARD
+========================================= */
+
+.dashboard {
+
+    position: relative;
+
+    z-index: 10;
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    padding: 45px 20px;
+
+    display: none;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    color: white;
+}
+
+
+.dashboard-header {
+
+    margin-bottom: 30px;
+}
+
+
+.dashboard-label {
+
+    font-size: 14px;
+
+    letter-spacing: 6px;
+
+    margin-bottom: 18px;
+}
+
+
+.dashboard-header h2 {
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(32px, 6vw, 55px);
+
+    color: white;
+
+    margin-bottom: 10px;
+
+    text-shadow:
+        0 5px 20px
+        rgba(0,0,0,0.2);
+}
+
+
+.date {
+
+    font-size: 17px;
+
+    letter-spacing: 3px;
+}
+
+
+/* =========================================
+   2 × 2 CARD MATRIX
+========================================= */
+
+.dashboard-buttons {
+
+    width: min(850px, 95%);
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 25px;
+
+    margin: 15px auto 0;
+}
+
+
+.dashboard-card {
+
+    position: relative;
+
+    min-height: 210px;
+
+    padding: 30px 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    color: white;
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.4);
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.25),
+            rgba(255,255,255,0.10)
+        );
+
+    backdrop-filter:
+        blur(18px);
+
+    box-shadow:
+        0 15px 40px
+        rgba(40,30,120,0.2);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        background 0.35s ease;
+
+    animation:
+        cardAppear 0.8s ease both;
+}
+
+
+.dashboard-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+
+.dashboard-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+
+.dashboard-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+
+.dashboard-card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+
+.dashboard-card:hover {
+
+    transform:
+        translateY(-10px)
+        scale(1.025);
+
+    box-shadow:
+        0 25px 55px
+        rgba(35,30,130,0.35);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.32),
+            rgba(255,255,255,0.14)
+        );
+}
+
+
+.card-icon {
+
+    font-size: 55px;
+
+    margin-bottom: 15px;
+
+    display: block;
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+.dashboard-card:hover .card-icon {
+
+    transform:
+        scale(1.18)
+        rotate(-5deg);
+}
+
+
+.dashboard-card strong {
+
+    font-size: 21px;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 8px;
+}
+
+
+.dashboard-card small {
+
+    font-size: 14px;
+
+    opacity: 0.8;
+}
+
+
+/* =========================================
+   FULL SCREEN PAGES
+========================================= */
+
+.full-screen {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 999;
+
+    width: 100%;
+
+    height: 100vh;
+
+    overflow-y: auto;
+
+    padding: 40px 20px;
+
+    display: none;
+
+    justify-content: center;
+
+    align-items: center;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #8d82df,
+            #b6a9ee,
+            #7e91df
+        );
+}
+
+
+/* =========================================
+   MEMORIES
+========================================= */
+
+.memories-content {
+
+    width: min(700px, 95%);
+
+    text-align: center;
+}
+
+
+.screen-label {
+
+    font-size: 14px;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 12px;
+}
+
+
+.memories-content h1 {
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(38px, 7vw, 60px);
+
+    margin-bottom: 10px;
+}
+
+
+.screen-subtitle {
+
+    font-size: 17px;
+
+    margin-bottom: 25px;
+
+    opacity: 0.9;
+}
+
+
+.memory-card {
+
+    width: 100%;
+
+    padding: 15px;
+
+    border-radius: 28px;
+
+    background:
+        rgba(255,255,255,0.18);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.4);
+
+    backdrop-filter:
+        blur(20px);
+
+    box-shadow:
+        0 25px 60px
+        rgba(30,20,90,0.3);
+}
+
+
+.memory-image-wrapper {
+
+    width: 100%;
+
+    aspect-ratio: 4 / 3;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255,255,255,0.12);
+}
+
+
+.memory-image-wrapper img {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: contain;
+
+    transition:
+        opacity 0.3s ease;
+}
+
+
+.memory-info {
+
+    padding: 15px 10px 5px;
+}
+
+
+.memory-info p {
+
+    font-size: 17px;
+
+    line-height: 1.6;
+
+    margin-bottom: 10px;
+}
+
+
+.memory-info span {
+
+    font-size: 14px;
+
+    opacity: 0.75;
+}
+
+
+.memory-controls {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 20px;
+
+    margin: 22px 0;
+}
+
+
+.memory-controls button {
+
+    width: 52px;
+
+    height: 52px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.5);
+
+    background:
+        rgba(255,255,255,0.2);
+
+    color: white;
+
+    font-size: 24px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+}
+
+
+.memory-controls button:hover {
+
+    transform:
+        scale(1.12);
+
+    background:
+        rgba(255,255,255,0.35);
+}
+
+
+/* =========================================
+   STORY
+========================================= */
+
+.story-screen {
+
+    align-items: flex-start;
+}
+
+
+.story-content {
+
+    width: min(750px, 95%);
+
+    margin: auto;
+
+    text-align: center;
+}
+
+
+.story-content h1 {
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(35px, 7vw, 60px);
+
+    margin-bottom: 20px;
+}
+
+
+.story-photo-wrapper {
+
+    display: flex;
+
+    justify-content: center;
+
+    margin: 10px auto 25px;
+}
+
+
+.story-photo {
+
+    width: 220px;
+
+    height: 170px;
+
+    object-fit: cover;
+
+    border-radius: 22px;
+
+    border:
+        3px solid
+        rgba(255,255,255,0.65);
+
+    box-shadow:
+        0 15px 40px
+        rgba(40,30,100,0.3);
+
+    transform:
+        rotate(-2deg);
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+.story-photo:hover {
+
+    transform:
+        rotate(0)
+        scale(1.05);
+}
+
+
+.story-card {
+
+    padding: 28px;
+
+    border-radius: 26px;
+
+    background:
+        rgba(255,255,255,0.16);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.4);
+
+    backdrop-filter:
+        blur(15px);
+
+    box-shadow:
+        0 20px 50px
+        rgba(40,30,100,0.2);
+}
+
+
+.story-card p {
+
+    font-size: 17px;
+
+    line-height: 1.8;
+
+    margin-bottom: 18px;
+}
+
+
+.story-highlight {
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 22px !important;
+
+    font-weight: bold;
+}
+
+
+/* =========================================
+   SIMPLE SCREENS
+========================================= */
+
+.simple-card {
+
+    width: min(650px, 95%);
+
+    padding: 35px;
+
+    text-align: center;
+
+    border-radius: 30px;
+
+    background:
+        rgba(255,255,255,0.16);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.4);
+
+    backdrop-filter:
+        blur(20px);
+
+    box-shadow:
+        0 25px 60px
+        rgba(30,20,90,0.3);
+}
+
+
+.big-icon {
+
+    font-size: 65px;
+
+    margin-bottom: 15px;
+}
+
+
+.simple-card h1 {
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(32px, 6vw, 50px);
+
+    margin-bottom: 25px;
+}
+
+
+.code-box,
+.message-box {
+
+    padding: 25px;
+
+    margin-bottom: 25px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(0,0,0,0.2);
+
+    text-align: left;
+}
+
+
+.code-box p {
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    margin-bottom: 12px;
+}
+
+
+.code-box p:last-child {
+
+    margin-bottom: 0;
+}
+
+
+.code-box span {
+
+    font-weight: bold;
+}
+
+
+.message-box p {
+
+    font-size: 17px;
+
+    line-height: 1.8;
+
+    margin-bottom: 18px;
+}
+
+
+.final-message {
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 20px !important;
+
+    text-align: center;
+
+    font-weight: bold;
+}
+
+
+/* =========================================
+   BACK BUTTON
+========================================= */
+
+.back-button {
+
+    padding: 13px 28px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background: white;
+
+    color: #665bc4;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.back-button:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(0,0,0,0.2);
+}
+
+
+/* =========================================
+   ANIMATIONS
+========================================= */
 
 @keyframes backgroundMove {
 
@@ -452,32 +1225,18 @@ body {
 }
 
 
-/* ================================
-   CARD ANIMATION
-================================ */
-
 @keyframes cardEnter {
 
-    0% {
+    from {
+
         opacity: 0;
 
         transform:
-            scale(0.65)
-            translateY(100px);
-
-        filter: blur(15px);
+            scale(0.85)
+            translateY(50px);
     }
 
-    70% {
-
-        transform:
-            scale(1.03)
-            translateY(-8px);
-
-        filter: blur(0);
-    }
-
-    100% {
+    to {
 
         opacity: 1;
 
@@ -488,139 +1247,15 @@ body {
 }
 
 
-/* ================================
-   NAME ANIMATION
-================================ */
-
-@keyframes nameAppear {
-
-    0% {
-
-        opacity: 0;
-
-        transform:
-            translateY(50px)
-            scale(0.7);
-
-        filter: blur(10px);
-    }
-
-    70% {
-
-        transform:
-            translateY(-5px)
-            scale(1.05);
-    }
-
-    100% {
-
-        opacity: 1;
-
-        transform:
-            translateY(0)
-            scale(1);
-
-        filter: blur(0);
-    }
-}
-
-
-/* ================================
-   TEXT
-================================ */
-
-@keyframes textAppear {
+@keyframes cardAppear {
 
     from {
 
         opacity: 0;
 
         transform:
-            translateY(25px);
-    }
-
-    to {
-
-        opacity: 1;
-
-        transform:
-            translateY(0);
-    }
-}
-
-
-/* ================================
-   DIVIDER
-================================ */
-
-@keyframes dividerAppear {
-
-    from {
-
-        opacity: 0;
-
-        transform:
-            scaleX(0);
-    }
-
-    to {
-
-        opacity: 1;
-
-        transform:
-            scaleX(1);
-    }
-}
-
-
-/* ================================
-   STAR
-================================ */
-
-@keyframes starPulse {
-
-    0% {
-
-        transform:
-            scale(0.8)
-            rotate(0deg);
-
-        opacity: 0.5;
-    }
-
-    50% {
-
-        transform:
-            scale(1.4)
-            rotate(20deg);
-
-        opacity: 1;
-    }
-
-    100% {
-
-        transform:
-            scale(0.8)
-            rotate(0deg);
-
-        opacity: 0.5;
-    }
-}
-
-
-/* ================================
-   BUTTON
-================================ */
-
-@keyframes buttonAppear {
-
-    from {
-
-        opacity: 0;
-
-        transform:
-            translateY(30px)
-            scale(0.8);
+            translateY(35px)
+            scale(0.94);
     }
 
     to {
@@ -650,2369 +1285,241 @@ body {
 }
 
 
-@keyframes buttonGlow {
+@keyframes starPulse {
 
-    0% {
+    0%,
+    100% {
 
-        box-shadow:
-            0 10px 30px
-            rgba(50,70,170,0.3);
+        transform:
+            scale(0.85)
+            rotate(0deg);
+
+        opacity: 0.6;
     }
 
     50% {
 
-        box-shadow:
-            0 10px 45px
-            rgba(255,255,255,0.45);
-    }
+        transform:
+            scale(1.25)
+            rotate(20deg);
 
-    100% {
-
-        box-shadow:
-            0 10px 30px
-            rgba(50,70,170,0.3);
+        opacity: 1;
     }
 }
 
 
-@keyframes shine {
+@keyframes bubbleFloat1 {
 
-    0% {
-        left: -100%;
-    }
-
-    40% {
-        left: 140%;
-    }
-
+    0%,
     100% {
-        left: 140%;
-    }
-}
-
-
-/* ================================
-   BUBBLE ANIMATIONS
-================================ */
-
-@keyframes bubble1 {
-
-    0% {
-        transform:
-            translate(0,0)
-            scale(1);
-    }
-
-    50% {
-        transform:
-            translate(80px,-100px)
-            scale(1.15);
-    }
-
-    100% {
-        transform:
-            translate(0,0)
-            scale(1);
-    }
-}
-
-
-@keyframes bubble2 {
-
-    0% {
         transform:
             translate(0,0);
     }
 
     50% {
         transform:
-            translate(-60px,80px);
-    }
-
-    100% {
-        transform:
-            translate(0,0);
+            translate(70px,-80px);
     }
 }
 
 
-@keyframes bubble3 {
+@keyframes bubbleFloat2 {
 
-    0% {
+    0%,
+    100% {
+        transform:
+            translate(0,0);
+    }
+
+    50% {
+        transform:
+            translate(-50px,60px);
+    }
+}
+
+
+@keyframes bubbleFloat3 {
+
+    0%,
+    100% {
         transform:
             translateY(0);
     }
 
     50% {
         transform:
-            translateY(-100px);
-    }
-
-    100% {
-        transform:
-            translateY(0);
+            translateY(-70px);
     }
 }
 
 
-@keyframes bubble4 {
+@keyframes bubbleFloat4 {
 
-    0% {
-        transform:
-            translate(0,0)
-            scale(1);
-    }
-
-    50% {
-        transform:
-            translate(-80px,-80px)
-            scale(1.2);
-    }
-
+    0%,
     100% {
-        transform:
-            translate(0,0)
-            scale(1);
-    }
-}
-
-
-@keyframes bubble5 {
-
-    0% {
         transform:
             translate(0,0);
     }
 
     50% {
         transform:
-            translate(40px,-60px);
-    }
-
-    100% {
-        transform:
-            translate(0,0);
+            translate(-70px,-60px);
     }
 }
 
 
-@keyframes bubble6 {
-
-    0% {
-        transform:
-            translateY(0)
-            scale(0.7);
-    }
-
-    50% {
-        transform:
-            translateY(60px)
-            scale(1.3);
-    }
-
-    100% {
-        transform:
-            translateY(0)
-            scale(0.7);
-    }
-}
-
-
-@keyframes bubble7 {
-
-    0% {
-        transform:
-            translate(0,0);
-    }
-
-    50% {
-        transform:
-            translate(60px,-80px);
-    }
-
-    100% {
-        transform:
-            translate(0,0);
-    }
-}
-
-
-/* ================================
+/* =========================================
    MOBILE
-================================ */
+========================================= */
 
 @media (max-width: 650px) {
 
+    body {
+        overflow-x: hidden;
+    }
+
+
     .welcome-card {
 
-        padding: 45px 25px;
+        width: 92%;
 
-        min-height: 550px;
+        min-height: 560px;
+
+        padding:
+            40px 22px;
     }
+
 
     .welcome-card h1 {
 
-        font-size: 52px;
+        font-size: 50px;
     }
+
 
     .intro {
 
         font-size: 20px;
     }
 
+
     .message {
 
         font-size: 16px;
     }
 
+
     .surprise-button {
 
         min-width: 250px;
 
+        padding:
+            15px 20px;
+
         font-size: 13px;
     }
-}
-/* =========================================
-   HIDE OTHER SCREENS UNTIL THEY ARE NEEDED
-========================================= */
 
-.loading-screen {
-    display: none;
-}
 
-.dashboard {
-    display: none;
-}
-/* ==========================================
-   FRIENDSHIP.EXE LOADING SCREEN
-========================================== */
+    /* MOBILE DASHBOARD */
 
-.loading-screen {
+    .dashboard {
 
-    position: fixed;
-
-    inset: 0;
-
-    z-index: 9999;
-
-    display: none;
-
-    justify-content: center;
-
-    align-items: center;
-
-    background:
-        radial-gradient(
-            circle at center,
-            #aaa1ed,
-            #7775d5 45%,
-            #555fbd
-        );
-
-    opacity: 0;
-
-    transition: opacity 0.8s ease;
-}
-
-
-.loading-screen.show {
-
-    opacity: 1;
-}
-
-
-.loading-card {
-
-    width: 500px;
-
-    max-width: 85%;
-
-    padding: 45px;
-
-    border-radius: 25px;
-
-    background:
-        rgba(20, 25, 60, 0.55);
-
-    border:
-        1px solid
-        rgba(255,255,255,0.35);
-
-    backdrop-filter: blur(20px);
-
-    box-shadow:
-        0 30px 80px
-        rgba(20,20,80,0.4);
-
-    color: white;
-
-    font-family:
-        "Courier New",
-        monospace;
-
-    animation:
-        terminalEnter 1s
-        cubic-bezier(.16,1,.3,1);
-}
-
-
-.loading-icon {
-
-    text-align: center;
-
-    font-size: 45px;
-
-    margin-bottom: 20px;
-
-    animation:
-        computerPulse 1.5s
-        ease-in-out infinite;
-}
-
-
-.terminal-title {
-
-    text-align: center;
-
-    font-size: 28px;
-
-    font-weight: bold;
-
-    margin-bottom: 30px;
-
-    letter-spacing: 2px;
-}
-
-
-.terminal-line {
-
-    margin: 12px 0;
-
-    font-size: 15px;
-
-    opacity: 0;
-
-    animation:
-        terminalText 0.7s
-        forwards;
-}
-
-
-.terminal-line:nth-child(3) {
-
-    animation-delay: 0.4s;
-}
-
-
-.terminal-line:nth-child(4) {
-
-    animation-delay: 0.8s;
-}
-
-
-.terminal-line:nth-child(5) {
-
-    animation-delay: 1.2s;
-}
-
-
-.progress-container {
-
-    width: 100%;
-
-    height: 12px;
-
-    margin-top: 30px;
-
-    border-radius: 20px;
-
-    background:
-        rgba(255,255,255,0.15);
-
-    overflow: hidden;
-}
-
-
-.progress-bar {
-    height: 100%;
-    width: 0%;
-    border-radius: 20px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #66d9ff,
-            #a889ff,
-            #ff9fd8
-        );
-
-    box-shadow:
-        0 0 15px
-        rgba(255,255,255,0.7);
-
-    transition: width 0.08s linear;
-}
-
-.loading-percent {
-
-    text-align: right;
-
-    margin-top: 10px;
-
-    font-size: 13px;
-
-    animation:
-        percentBlink 1s
-        infinite;
-}
-
-
-/* ==========================================
-   ANIMATIONS
-========================================== */
-
-@keyframes terminalEnter {
-
-    0% {
-
-        opacity: 0;
-
-        transform:
-            scale(0.7)
-            translateY(60px);
-
-        filter: blur(12px);
+        padding:
+            30px 15px;
     }
 
-    70% {
 
-        transform:
-            scale(1.03)
-            translateY(-5px);
+    .dashboard-header {
 
+        margin-bottom: 25px;
     }
 
-    100% {
 
-        opacity: 1;
+    .dashboard-label {
 
-        transform:
-            scale(1)
-            translateY(0);
+        font-size: 11px;
 
-        filter: blur(0);
-    }
-}
-
-
-@keyframes computerPulse {
-
-    0%,
-    100% {
-
-        transform:
-            scale(0.9);
-
+        letter-spacing: 4px;
     }
 
-    50% {
 
-        transform:
-            scale(1.15);
+    .dashboard-header h2 {
 
-        filter:
-            drop-shadow(
-                0 0 15px
-                rgba(255,255,255,0.7)
-            );
-    }
-}
+        font-size: 31px;
 
-
-@keyframes terminalText {
-
-    from {
-
-        opacity: 0;
-
-        transform:
-            translateX(-20px);
-
+        line-height: 1.3;
     }
 
-    to {
 
-        opacity: 1;
+    .date {
 
-        transform:
-            translateX(0);
-
-    }
-}
-
-
-@keyframes loadingProgress {
-
-    from {
-
-        width: 0%;
-
+        font-size: 14px;
     }
 
-    to {
 
-        width: 100%;
-
-    }
-}
-
-
-@keyframes percentBlink {
-
-    0%,
-    100% {
-
-        opacity: 0.5;
-
-    }
-
-    50% {
-
-        opacity: 1;
-
-    }
-}
-/* ==========================================
-   FRIENDSHIP.EXE EXTRA EFFECTS
-========================================== */
-
-.loading-card {
-
-    animation:
-        terminalEnter 1s
-        cubic-bezier(.16,1,.3,1),
-        terminalFloat 4s
-        ease-in-out
-        1s infinite alternate;
-}
-
-
-.loading-card::before {
-
-    content: "";
-
-    position: absolute;
-
-    inset: -2px;
-
-    border-radius: 27px;
-
-    padding: 2px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,255,255,0.7),
-            transparent
-        );
-
-    background-size: 200% 100%;
-
-    animation:
-        borderScan 3s
-        linear infinite;
-
-    pointer-events: none;
-
-    opacity: 0.5;
-}
-
-
-@keyframes terminalFloat {
-
-    from {
-
-        transform:
-            translateY(0);
-
-    }
-
-    to {
-
-        transform:
-            translateY(-10px);
-
-    }
-}
-
-
-@keyframes borderScan {
-
-    from {
-
-        background-position:
-            -100% 0;
-
-    }
-
-    to {
-
-        background-position:
-            200% 0;
-
-    }
-}
-/* =========================================
-   PREMIUM DASHBOARD CARDS
-========================================= */
-
-.dashboard-buttons {
-    width: min(900px, 90%);
-    margin: 45px auto 0;
-
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-
-    gap: 28px;
-
-    padding: 10px;
-}
-
-
-/* Individual cards */
-
-.dashboard-buttons button {
-    position: relative;
-
-    min-height: 150px;
-
-    padding: 28px 25px;
-
-    border: 1px solid rgba(255, 255, 255, 0.35);
-
-    border-radius: 24px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,0.20),
-            rgba(255,255,255,0.07)
-        );
-
-    backdrop-filter: blur(18px);
-
-    -webkit-backdrop-filter: blur(18px);
-
-    color: white;
-
-    cursor: pointer;
-
-    display: flex;
-    flex-direction: column;
-
-    justify-content: center;
-    align-items: center;
-
-    text-align: center;
-
-    overflow: hidden;
-
-    box-shadow:
-        0 12px 35px rgba(45, 40, 120, 0.20);
-
-    transition:
-        transform 0.45s cubic-bezier(.16,1,.3,1),
-        box-shadow 0.45s ease,
-        border-color 0.45s ease,
-        background 0.45s ease;
-}
-
-
-/* Soft light inside card */
-
-.dashboard-buttons button::before {
-
-    content: "";
-
-    position: absolute;
-
-    width: 180px;
-    height: 180px;
-
-    top: -100px;
-    left: -100px;
-
-    border-radius: 50%;
-
-    background:
-        rgba(255,255,255,0.18);
-
-    filter: blur(20px);
-
-    transition:
-        transform 0.6s ease;
-}
-
-
-/* Shine that moves across card */
-
-.dashboard-buttons button::after {
-
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: -120%;
-
-    width: 80%;
-    height: 100%;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,255,255,0.25),
-            transparent
-        );
-
-    transform: skewX(-20deg);
-
-    transition: left 0.7s ease;
-}
-
-
-/* =========================================
-   HOVER EFFECT
-========================================= */
-
-.dashboard-buttons button:hover {
-
-    transform:
-        translateY(-12px)
-        scale(1.025);
-
-    border-color:
-        rgba(255,255,255,0.75);
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,0.28),
-            rgba(255,255,255,0.12)
-        );
-
-    box-shadow:
-        0 25px 55px
-        rgba(35, 30, 130, 0.35);
-
-}
-
-
-.dashboard-buttons button:hover::before {
-
-    transform:
-        translate(220px, 180px);
-}
-
-
-.dashboard-buttons button:hover::after {
-
-    left: 140%;
-}
-
-
-/* =========================================
-   ICON
-========================================= */
-
-.dashboard-buttons button span {
-
-    position: relative;
-
-    z-index: 2;
-
-    font-size: 42px;
-
-    margin-bottom: 12px;
-
-    display: block;
-
-    transition:
-        transform 0.45s
-        cubic-bezier(.16,1,.3,1),
-        filter 0.45s ease;
-}
-
-
-.dashboard-buttons button:hover span {
-
-    transform:
-        scale(1.25)
-        rotate(-5deg);
-
-    filter:
-        drop-shadow(
-            0 0 14px
-            rgba(255,255,255,0.65)
-        );
-}
-
-
-/* =========================================
-   CARD TITLE
-========================================= */
-
-.dashboard-buttons button strong {
-
-    position: relative;
-
-    z-index: 2;
-
-    font-size: 18px;
-
-    letter-spacing: 1px;
-
-    margin-bottom: 6px;
-
-    transition:
-        letter-spacing 0.4s ease;
-}
-
-
-.dashboard-buttons button:hover strong {
-
-    letter-spacing: 2px;
-}
-
-
-/* =========================================
-   DESCRIPTION
-========================================= */
-
-.dashboard-buttons button small {
-
-    position: relative;
-
-    z-index: 2;
-
-    font-size: 13px;
-
-    opacity: 0.75;
-
-    letter-spacing: 0.5px;
-
-    transition:
-        opacity 0.4s ease,
-        transform 0.4s ease;
-}
-
-
-.dashboard-buttons button:hover small {
-
-    opacity: 1;
-
-    transform:
-        translateY(2px);
-}
-
-
-/* =========================================
-   CARD ENTRY ANIMATION
-========================================= */
-
-.dashboard-buttons button {
-
-    animation:
-        cardAppear 0.8s
-        cubic-bezier(.16,1,.3,1)
-        both;
-}
-
-
-.dashboard-buttons button:nth-child(1) {
-    animation-delay: 0.2s;
-}
-
-
-.dashboard-buttons button:nth-child(2) {
-    animation-delay: 0.35s;
-}
-
-
-.dashboard-buttons button:nth-child(3) {
-    animation-delay: 0.5s;
-}
-
-
-.dashboard-buttons button:nth-child(4) {
-    animation-delay: 0.65s;
-}
-
-
-@keyframes cardAppear {
-
-    from {
-
-        opacity: 0;
-
-        transform:
-            translateY(40px)
-            scale(0.92);
-
-        filter: blur(8px);
-    }
-
-    to {
-
-        opacity: 1;
-
-        transform:
-            translateY(0)
-            scale(1);
-
-        filter: blur(0);
-    }
-}
-
-
-/* =========================================
-   MOBILE
-========================================= */
-
-@media (max-width: 650px) {
+    /*
+       On mobile:
+       cards become one column
+       just like your screenshot.
+    */
 
     .dashboard-buttons {
 
+        width: min(330px, 90%);
+
         grid-template-columns: 1fr;
 
-        gap: 20px;
-
-        width: 88%;
-    }
-
-    .dashboard-buttons button {
-
-        min-height: 130px;
-
-    }
-
-}
-.memories-screen {
-    display: none;
-    min-height: 100vh;
-    padding: 40px 20px;
-    text-align: center;
-    box-sizing: border-box;
-}
-
-.memories-screen h1 {
-    margin-top: 20px;
-    font-size: 38px;
-}
-
-.memory-card {
-    max-width: 600px;
-    margin: 35px auto;
-    padding: 18px;
-    border-radius: 25px;
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(15px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-}
-
-.memory-card img {
-    width: 100%;
-    max-height: 500px;
-    object-fit: contain;
-    border-radius: 18px;
-    display: block;
-}
-
-.memory-card p {
-    margin-top: 18px;
-    font-size: 18px;
-}
-
-.back-button {
-    padding: 12px 25px;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    font-size: 16px;
-}
-/* =====================================
-   OUR MEMORIES SCREEN
-   ===================================== */
-
-.memories-screen {
-    position: fixed;
-    inset: 0;
-
-    width: 100%;
-    height: 100vh;
-
-    display: none;
-
-    justify-content: center;
-    align-items: center;
-
-    padding: 30px;
-    box-sizing: border-box;
-
-    background:
-        radial-gradient(
-            circle at 20% 20%,
-            rgba(255,255,255,0.25),
-            transparent 35%
-        ),
-        linear-gradient(
-            135deg,
-            #8d82df,
-            #b6a9ee,
-            #7e91df
-        );
-
-    z-index: 9999;
-
-    overflow-y: auto;
-}
-
-
-/* Content */
-
-.memories-content {
-    width: min(850px, 92%);
-
-    text-align: center;
-
-    animation: memoriesEnter 0.8s ease forwards;
-}
-
-
-/* Heading */
-
-.memory-heading {
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-
-    gap: 18px;
-
-    color: white;
-}
-
-.memory-heading h1 {
-    margin: 0;
-
-    font-size: clamp(35px, 6vw, 65px);
-
-    font-family: Georgia, serif;
-
-    text-shadow:
-        0 5px 20px rgba(0,0,0,0.2);
-}
-
-.memory-heading span {
-    font-size: 25px;
-
-    animation: sparkle 1.5s ease-in-out infinite;
-}
-
-
-/* Subtitle */
-
-.memory-subtitle {
-    color: white;
-
-    font-size: 18px;
-
-    margin: 12px 0 30px;
-
-    opacity: 0.9;
-}
-
-
-/* Memory card */
-
-.memory-card {
-
-    width: min(650px, 100%);
-
-    margin: auto;
-
-    padding: 15px;
-
-    border-radius: 30px;
-
-    background: rgba(255,255,255,0.18);
-
-    border: 1px solid rgba(255,255,255,0.4);
-
-    backdrop-filter: blur(20px);
-
-    box-shadow:
-        0 25px 60px rgba(30,20,90,0.3);
-
-    box-sizing: border-box;
-
-    animation: cardFloat 4s ease-in-out infinite;
-}
-
-
-/* Image */
-
-.memory-image-wrapper {
-
-    width: 100%;
-
-    aspect-ratio: 4 / 3;
-
-    overflow: hidden;
-
-    border-radius: 22px;
-
-    background: rgba(255,255,255,0.15);
-
-}
-
-
-.memory-image-wrapper img {
-
-    width: 100%;
-    height: 100%;
-
-    object-fit: contain;
-
-    display: block;
-
-    transition:
-        opacity 0.4s ease,
-        transform 0.5s ease;
-
-}
-
-
-/* Caption */
-
-.memory-info {
-
-    padding: 15px 10px 5px;
-
-    color: white;
-}
-
-
-.memory-info p {
-
-    margin: 0 0 8px;
-
-    font-size: 19px;
-
-}
-
-
-.memory-info span {
-
-    font-size: 14px;
-
-    opacity: 0.75;
-
-}
-
-
-/* Controls */
-
-.memory-controls {
-
-    display: flex;
-
-    justify-content: center;
-
-    gap: 25px;
-
-    margin: 25px 0;
-}
-
-
-.memory-controls button {
-
-    width: 55px;
-    height: 55px;
-
-    border: 1px solid rgba(255,255,255,0.5);
-
-    border-radius: 50%;
-
-    background: rgba(255,255,255,0.2);
-
-    color: white;
-
-    font-size: 25px;
-
-    cursor: pointer;
-
-    transition:
-        transform 0.25s ease,
-        background 0.25s ease;
-
-}
-
-
-.memory-controls button:hover {
-
-    transform: scale(1.15);
-
-    background: rgba(255,255,255,0.35);
-
-}
-
-
-.memory-controls button:active {
-
-    transform: scale(0.9);
-
-}
-
-
-/* Back button */
-
-.back-button {
-
-    border: none;
-
-    padding: 13px 28px;
-
-    border-radius: 30px;
-
-    background: white;
-
-    color: #665bc4;
-
-    font-size: 16px;
-
-    font-weight: bold;
-
-    cursor: pointer;
-
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
-
-}
-
-
-.back-button:hover {
-
-    transform: translateY(-3px);
-
-    box-shadow:
-        0 10px 25px rgba(0,0,0,0.2);
-
-}
-
-
-/* =====================================
-   ANIMATIONS
-   ===================================== */
-
-@keyframes memoriesEnter {
-
-    from {
-
-        opacity: 0;
-
-        transform:
-            translateY(40px)
-            scale(0.95);
-
-    }
-
-    to {
-
-        opacity: 1;
-
-        transform:
-            translateY(0)
-            scale(1);
-
-    }
-
-}
-
-
-@keyframes cardFloat {
-
-    0%, 100% {
-
-        transform: translateY(0);
-
-    }
-
-    50% {
-
-        transform: translateY(-8px);
-
-    }
-
-}
-
-
-@keyframes sparkle {
-
-    0%, 100% {
-
-        transform: scale(1);
-        opacity: 0.7;
-
-    }
-
-    50% {
-
-        transform: scale(1.4);
-        opacity: 1;
-
-    }
-
-}
-/* =========================================
-   OUR STORY - HIDDEN AT START
-========================================= */
-
-#ourStory {
-    display: none;
-}
-
-
-/* When JavaScript opens the story */
-#ourStory.story-active {
-    display: flex;
-}
-
-
-/* Story screen */
-
-.story-screen {
-    position: fixed;
-
-    inset: 0;
-
-    width: 100%;
-    height: 100vh;
-
-    padding: 40px 20px;
-
-    box-sizing: border-box;
-
-    justify-content: center;
-    align-items: center;
-
-    text-align: center;
-
-    overflow-y: auto;
-
-    background:
-        linear-gradient(
-            135deg,
-            #8d82df,
-            #b6a9ee,
-            #7e91df
-        );
-
-    z-index: 9998;
-}
-
-
-/* Story content */
-
-.story-content {
-
-    width: min(750px, 92%);
-
-    margin: auto;
-
-    animation:
-        storyAppear 0.7s ease;
-}
-
-
-/* Title */
-
-.story-title {
-
-    color: white;
-
-    font-size: 15px;
-
-    letter-spacing: 6px;
-
-    margin-bottom: 15px;
-}
-
-
-/* Heading */
-
-.story-content h1 {
-
-    color: white;
-
-    font-family: Georgia, serif;
-
-    font-size: clamp(38px, 7vw, 65px);
-
-    margin: 10px 0 30px;
-
-    text-shadow:
-        0 5px 20px rgba(0,0,0,0.2);
-}
-
-
-/* Story image */
-
-.story-photo {
-
-    display: block;
-
-    width: min(500px, 90%);
-
-    height: 350px;
-
-    margin: 0 auto 30px;
-
-    object-fit: cover;
-
-    border-radius: 28px;
-
-    border: 2px solid
-        rgba(255,255,255,0.5);
-
-    box-shadow:
-        0 20px 60px
-        rgba(40,30,100,0.3);
-}
-
-
-/* Story text card */
-
-.story-card {
-
-    width: 100%;
-
-    padding: 30px;
-
-    box-sizing: border-box;
-
-    border-radius: 28px;
-
-    background:
-        rgba(255,255,255,0.15);
-
-    border:
-        1px solid
-        rgba(255,255,255,0.4);
-
-    backdrop-filter: blur(15px);
-
-    box-shadow:
-        0 20px 50px
-        rgba(40,30,100,0.2);
-
-    color: white;
-}
-
-
-/* Story paragraphs */
-
-.story-card p {
-
-    font-size: 18px;
-
-    line-height: 1.8;
-
-    margin-bottom: 22px;
-}
-
-
-/* Last paragraph */
-
-.story-card p:last-child {
-
-    margin-bottom: 0;
-}
-
-
-/* Highlight */
-
-.story-highlight {
-
-    font-family: Georgia, serif;
-
-    font-size: 23px !important;
-
-    font-weight: 600;
-}
-
-
-/* Back button */
-
-.story-screen .back-button {
-
-    margin-top: 30px;
-
-    padding: 14px 28px;
-
-    border: none;
-
-    border-radius: 30px;
-
-    background: white;
-
-    color: #6658c8;
-
-    font-size: 16px;
-
-    font-weight: bold;
-
-    cursor: pointer;
-
-    transition: 0.3s;
-}
-
-
-.story-screen .back-button:hover {
-
-    transform: translateY(-4px);
-
-    box-shadow:
-        0 10px 30px
-        rgba(40,30,100,0.25);
-}
-
-
-/* Animation */
-
-@keyframes storyAppear {
-
-    from {
-
-        opacity: 0;
-
-        transform:
-            translateY(30px)
-            scale(0.97);
-
-    }
-
-    to {
-
-        opacity: 1;
-
-        transform:
-            translateY(0)
-            scale(1);
-
-    }
-
-}
-
-
-/* Mobile */
-
-@media (max-width: 600px) {
-
-    .story-screen {
-
-        padding: 30px 15px;
-
-    }
-
-    .story-photo {
-
-        height: 280px;
-
-    }
-
-    .story-card {
-
-        padding: 22px 18px;
-
-    }
-
-    .story-card p {
-
-        font-size: 16px;
-
-    }
-
-    .story-highlight {
-
-        font-size: 20px !important;
-
-    }
-
-}
-
-/* =========================================
-   SCREEN CONTROL
-========================================= */
-
-/* Story is COMPLETELY hidden when website starts */
-
-#ourStory {
-    display: none;
-}
-
-
-/* Memories is COMPLETELY hidden when website starts */
-
-#memories {
-    display: none;
-}
-
-
-/* Dashboard is hidden initially */
-
-#dashboard {
-    display: none;
-}
-
-
-/* Loading is hidden initially */
-
-#loadingScreen {
-    display: none;
-}
-
-
-/* =========================================
-   STORY SCREEN
-========================================= */
-
-#ourStory.story-active {
-
-    position: fixed;
-
-    inset: 0;
-
-    width: 100%;
-    height: 100vh;
-
-    display: flex;
-
-    justify-content: center;
-    align-items: flex-start;
-
-    padding: 40px 20px;
-
-    box-sizing: border-box;
-
-    overflow-y: auto;
-
-    z-index: 9999;
-
-    background:
-        linear-gradient(
-            135deg,
-            #8d82df,
-            #b6a9ee,
-            #7e91df
-        );
-}
-
-
-/* =========================================
-   STORY CONTENT
-========================================= */
-
-.story-content {
-
-    width: min(750px, 92%);
-
-    margin: auto;
-
-    text-align: center;
-
-    color: white;
-
-    animation:
-        storyAppear 0.7s ease;
-}
-
-
-/* =========================================
-   STORY TITLE
-========================================= */
-
-.story-label {
-
-    font-size: 14px;
-
-    letter-spacing: 5px;
-
-    margin-bottom: 15px;
-
-    color: white;
-}
-
-
-.story-content h1 {
-
-    font-family: Georgia, serif;
-
-    font-size:
-        clamp(38px, 7vw, 65px);
-
-    margin:
-        10px 0 30px;
-
-    color: white;
-
-    text-shadow:
-        0 5px 20px
-        rgba(0,0,0,0.2);
-}
-
-
-/* =========================================
-   STORY IMAGE
-========================================= */
-
-.story-photo {
-
-    display: block;
-
-    width: min(500px, 90%);
-
-    height: 350px;
-
-    margin:
-        0 auto 30px;
-
-    object-fit: cover;
-
-    border-radius: 28px;
-
-    border:
-        2px solid
-        rgba(255,255,255,0.5);
-
-    box-shadow:
-        0 20px 60px
-        rgba(40,30,100,0.3);
-}
-
-
-/* =========================================
-   STORY CARD
-========================================= */
-
-.story-card {
-
-    width: 100%;
-
-    padding: 30px;
-
-    box-sizing: border-box;
-
-    border-radius: 28px;
-
-    background:
-        rgba(255,255,255,0.15);
-
-    border:
-        1px solid
-        rgba(255,255,255,0.4);
-
-    backdrop-filter:
-        blur(15px);
-
-    box-shadow:
-        0 20px 50px
-        rgba(40,30,100,0.2);
-}
-
-
-.story-card p {
-
-    font-size: 18px;
-
-    line-height: 1.8;
-
-    margin:
-        0 0 22px;
-}
-
-
-.story-card p:last-child {
-
-    margin-bottom: 0;
-}
-
-
-.story-highlight {
-
-    font-family: Georgia, serif;
-
-    font-size: 23px !important;
-
-    font-weight: 600;
-}
-
-
-/* =========================================
-   STORY BACK BUTTON
-========================================= */
-
-.story-screen .back-button {
-
-    margin-top: 30px;
-
-    padding: 14px 28px;
-
-    border: none;
-
-    border-radius: 30px;
-
-    background: white;
-
-    color: #6658c8;
-
-    font-size: 16px;
-
-    font-weight: bold;
-
-    cursor: pointer;
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-}
-
-
-.story-screen .back-button:hover {
-
-    transform:
-        translateY(-4px);
-
-    box-shadow:
-        0 10px 30px
-        rgba(40,30,100,0.25);
-}
-
-
-/* =========================================
-   STORY ANIMATION
-========================================= */
-
-@keyframes storyAppear {
-
-    from {
-
-        opacity: 0;
-
-        transform:
-            translateY(30px)
-            scale(0.97);
-
-    }
-
-    to {
-
-        opacity: 1;
-
-        transform:
-            translateY(0)
-            scale(1);
-
-    }
-
-}
-
-
-/* =========================================
-   MOBILE STORY
-========================================= */
-
-@media (max-width: 600px) {
-
-    #ourStory.story-active {
-
-        padding:
-            30px 15px;
-
+        gap: 22px;
     }
 
 
-    .story-photo {
+    .dashboard-card {
 
-        width: 90%;
-
-        height: 280px;
-
+        min-height: 210px;
     }
 
 
-    .story-card {
+    .card-icon {
 
-        padding:
-            22px 18px;
-
+        font-size: 52px;
     }
 
 
-    .story-card p {
-
-        font-size: 16px;
-
-    }
-
-
-    .story-highlight {
-
-        font-size:
-            20px !important;
-
-    }
-
-}
-
-/* =========================================
-   FINAL SCREEN CONTROL
-   ONLY ONE SCREEN VISIBLE AT A TIME
-========================================= */
-
-/* HOME */
-#startScreen {
-    display: flex;
-}
-
-/* LOADING */
-#loadingScreen {
-    display: none;
-}
-
-/* DASHBOARD */
-#dashboard {
-    display: none;
-}
-
-/* MEMORIES */
-#memories {
-    display: none;
-}
-
-/* STORY */
-#ourStory {
-    display: none;
-}
-
-
-/* =========================================
-   STORY ACTIVE
-========================================= */
-
-#ourStory.story-active {
-
-    display: flex !important;
-
-    position: fixed;
-
-    inset: 0;
-
-    width: 100vw;
-    height: 100vh;
-
-    margin: 0;
-    padding: 40px 20px;
-
-    box-sizing: border-box;
-
-    justify-content: center;
-    align-items: flex-start;
-
-    overflow-y: auto;
-    overflow-x: hidden;
-
-    z-index: 10000;
-
-    background:
-        linear-gradient(
-            135deg,
-            #8d82df,
-            #b6a9ee,
-            #7e91df
-        );
-}
-
-
-/* =========================================
-   STORY CONTENT
-========================================= */
-
-#ourStory .story-content {
-
-    width: min(750px, 92%);
-
-    margin: auto;
-
-    text-align: center;
-
-    color: white;
-
-    animation: storyAppear 0.7s ease;
-}
-
-
-/* =========================================
-   STORY TITLE
-========================================= */
-
-#ourStory .story-label {
-
-    color: white;
-
-    font-size: 14px;
-
-    letter-spacing: 5px;
-
-    margin-bottom: 15px;
-}
-
-
-#ourStory h1 {
-
-    color: white;
-
-    font-family: Georgia, serif;
-
-    font-size:
-        clamp(38px, 7vw, 65px);
-
-    margin:
-        10px 0 30px;
-
-    text-shadow:
-        0 5px 20px
-        rgba(0,0,0,0.2);
-}
-
-
-/* =========================================
-   STORY IMAGE
-========================================= */
-
-#ourStory .story-photo {
-
-    display: block;
-
-    width: min(500px, 90%);
-
-    height: 350px;
-
-    margin:
-        0 auto 30px;
-
-    object-fit: cover;
-
-    border-radius: 28px;
-
-    border:
-        2px solid
-        rgba(255,255,255,0.5);
-
-    box-shadow:
-        0 20px 60px
-        rgba(40,30,100,0.3);
-}
-
-
-/* =========================================
-   STORY CARD
-========================================= */
-
-#ourStory .story-card {
-
-    width: 100%;
-
-    padding: 30px;
-
-    box-sizing: border-box;
-
-    border-radius: 28px;
-
-    background:
-        rgba(255,255,255,0.15);
-
-    border:
-        1px solid
-        rgba(255,255,255,0.4);
-
-    backdrop-filter: blur(15px);
-
-    box-shadow:
-        0 20px 50px
-        rgba(40,30,100,0.2);
-}
-
-
-#ourStory .story-card p {
-
-    color: white;
-
-    font-size: 18px;
-
-    line-height: 1.8;
-
-    margin:
-        0 0 22px;
-}
-
-
-#ourStory .story-highlight {
-
-    font-family: Georgia, serif;
-
-    font-size: 23px;
-
-    font-weight: 600;
-}
-
-
-/* =========================================
-   STORY BACK BUTTON
-========================================= */
-
-#ourStory .back-button {
-
-    margin-top: 30px;
-
-    padding: 14px 28px;
-
-    border: none;
-
-    border-radius: 30px;
-
-    background: white;
-
-    color: #6658c8;
-
-    font-size: 16px;
-
-    font-weight: bold;
-
-    cursor: pointer;
-}
-
-
-/* =========================================
-   STORY ANIMATION
-========================================= */
-
-@keyframes storyAppear {
-
-    from {
-
-        opacity: 0;
-
-        transform:
-            translateY(30px)
-            scale(0.97);
-    }
-
-    to {
-
-        opacity: 1;
-
-        transform:
-            translateY(0)
-            scale(1);
-    }
-}
-
-
-/* =========================================
-   MOBILE
-========================================= */
-
-@media (max-width: 600px) {
-
-    #ourStory.story-active {
-
-        padding:
-            30px 15px;
-    }
-
-    #ourStory .story-photo {
-
-        width: 90%;
-
-        height: 280px;
-    }
-
-    #ourStory .story-card {
-
-        padding:
-            22px 18px;
-    }
-
-    #ourStory .story-card p {
-
-        font-size: 16px;
-    }
-
-    #ourStory .story-highlight {
+    .dashboard-card strong {
 
         font-size: 20px;
     }
-}
-/* =========================================
-   OUR STORY - LITTLE PHOTO
-========================================= */
-
-.story-photo-wrapper {
-    display: flex;
-    justify-content: center;
-    margin: 20px auto 28px;
-}
 
 
-/* Little photo */
+    .memories-screen {
 
-.story-photo {
-    width: 220px;
-    height: 170px;
-
-    object-fit: cover;
-
-    border-radius: 22px;
-
-    border: 3px solid
-        rgba(255,255,255,0.65);
-
-    box-shadow:
-        0 15px 40px
-        rgba(40,30,100,0.3);
-
-    transform: rotate(-2deg);
-
-    transition:
-        transform 0.4s ease,
-        box-shadow 0.4s ease;
-}
+        padding:
+            30px 15px;
+    }
 
 
-/* Small hover effect */
+    .memory-card {
 
-.story-photo:hover {
-
-    transform:
-        rotate(0deg)
-        scale(1.05);
-
-    box-shadow:
-        0 20px 50px
-        rgba(40,30,100,0.4);
-}
+        padding: 10px;
+    }
 
 
-/* Story label */
+    .memory-image-wrapper {
 
-.story-label {
-
-    color: white;
-
-    font-size: 14px;
-
-    letter-spacing: 5px;
-
-    margin-bottom: 15px;
-}
+        aspect-ratio: 4 / 3;
+    }
 
 
-/* Story title */
+    .memory-info p {
 
-.story-content h1 {
-
-    color: white;
-
-    font-family: Georgia, serif;
-
-    font-size:
-        clamp(32px, 6vw, 55px);
-
-    margin:
-        10px 0 20px;
-
-    text-shadow:
-        0 5px 20px
-        rgba(0,0,0,0.2);
-}
+        font-size: 15px;
+    }
 
 
-/* Story card */
+    .story-content {
 
-.story-card {
+        width: 95%;
+    }
 
-    width: min(700px, 100%);
-
-    margin: auto;
-
-    padding: 28px;
-
-    border-radius: 26px;
-
-    background:
-        rgba(255,255,255,0.16);
-
-    border:
-        1px solid
-        rgba(255,255,255,0.4);
-
-    backdrop-filter: blur(15px);
-
-    -webkit-backdrop-filter: blur(15px);
-
-    box-shadow:
-        0 20px 50px
-        rgba(40,30,100,0.2);
-
-    color: white;
-}
-
-
-/* Story text */
-
-.story-card p {
-
-    font-size: 17px;
-
-    line-height: 1.8;
-
-    margin-bottom: 18px;
-
-    color: white;
-}
-
-
-/* Final emotional line */
-
-.story-highlight {
-
-    font-family: Georgia, serif;
-
-    font-size: 22px !important;
-
-    font-weight: 600;
-
-    margin-bottom: 0 !important;
-}
-
-
-/* Mobile */
-
-@media (max-width: 600px) {
 
     .story-photo {
 
@@ -3021,57 +1528,105 @@ body {
         height: 140px;
     }
 
+
     .story-card {
 
-        padding: 22px 18px;
+        padding:
+            22px 18px;
     }
+
 
     .story-card p {
 
-        font-size: 16px;
+        font-size: 15px;
 
         line-height: 1.7;
     }
 
+
     .story-highlight {
 
-        font-size: 20px !important;
+        font-size: 19px !important;
     }
+
+
+    .simple-card {
+
+        padding:
+            25px 18px;
+    }
+
+
+    .simple-card h1 {
+
+        font-size: 32px;
+    }
+
+
+    .code-box,
+    .message-box {
+
+        padding: 18px;
+    }
+
+
+    .code-box p {
+
+        font-size: 13px;
+    }
+
+
+    .message-box p {
+
+        font-size: 15px;
+    }
+
 }
 /* =========================================
-   STORY SCREEN CONTROL
+   FRIENDSHIP CODE SCREEN
 ========================================= */
 
-#ourStory {
+#friendshipCode {
     display: none;
+}
+
+
+/* Main screen */
+
+.code-screen {
+
     position: fixed;
+
     inset: 0;
-    z-index: 10000;
 
     width: 100%;
     height: 100vh;
 
+    z-index: 10000;
+
     overflow-y: auto;
+
+    padding: 35px 20px;
+
+    box-sizing: border-box;
 
     justify-content: center;
     align-items: center;
-
-    padding: 30px 20px;
 
     background:
         linear-gradient(
             135deg,
             #7289da,
             #9b8de5,
-            #b9a4ed
+            #b9a4ed,
+            #7eb9e8
         );
 }
 
 
-/* Story content */
+/* Content */
 
-#ourStory .story-content {
-    display: block;
+.code-content {
 
     width: min(750px, 95%);
 
@@ -3080,16 +1635,394 @@ body {
     text-align: center;
 
     color: white;
+
+    animation: codeScreenEnter 0.7s ease;
 }
 
 
-/* Make sure everything inside is visible */
+/* Header */
 
-#ourStory .story-label,
-#ourStory h1,
-#ourStory .story-photo-wrapper,
-#ourStory .story-card,
-#ourStory .back-button {
-    position: relative;
-    z-index: 2;
+.code-header {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 18px;
+
+    margin-bottom: 10px;
+}
+
+
+.code-header h1 {
+
+    margin: 0;
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(35px, 7vw, 55px);
+
+    color: white;
+
+    text-shadow:
+        0 5px 20px rgba(0,0,0,0.2);
+}
+
+
+.code-header span {
+
+    font-size: 25px;
+
+    animation: codeSparkle 1.5s infinite;
+}
+
+
+/* Subtitle */
+
+.code-subtitle {
+
+    margin-bottom: 25px;
+
+    font-size: 17px;
+
+    opacity: 0.9;
+}
+
+
+/* =========================================
+   CODE WINDOW
+========================================= */
+
+.code-window {
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    text-align: left;
+
+    overflow: hidden;
+
+    border-radius: 22px;
+
+    background:
+        rgba(15, 18, 35, 0.88);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.25);
+
+    box-shadow:
+        0 25px 60px
+        rgba(30,20,90,0.4);
+
+    backdrop-filter: blur(15px);
+}
+
+
+/* Window top */
+
+.code-window-top {
+
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 0 16px;
+
+    box-sizing: border-box;
+
+    background:
+        rgba(255,255,255,0.08);
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,0.12);
+}
+
+
+/* Window dots */
+
+.dot {
+
+    width: 12px;
+    height: 12px;
+
+    border-radius: 50%;
+
+    display: inline-block;
+}
+
+
+.red {
+    background: #ff6b6b;
+}
+
+
+.yellow {
+    background: #ffd93d;
+}
+
+
+.green {
+    background: #6bcb77;
+}
+
+
+/* File name */
+
+.file-name {
+
+    margin-left: 10px;
+
+    color:
+        rgba(255,255,255,0.7);
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 13px;
+}
+
+
+/* Code */
+
+.code-window pre {
+
+    margin: 0;
+
+    padding: 28px;
+
+    overflow-x: auto;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+
+    color: #f5f5f5;
+}
+
+
+/* Code colors */
+
+.code-purple {
+    color: #c792ea;
+}
+
+
+.code-green {
+    color: #9be564;
+}
+
+
+.code-orange {
+    color: #ffcb8b;
+}
+
+
+/* =========================================
+   OUTPUT
+========================================= */
+
+.code-output {
+
+    margin-top: 22px;
+
+    padding: 20px 25px;
+
+    border-radius: 20px;
+
+    text-align: left;
+
+    background:
+        rgba(20,25,50,0.55);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.2);
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    box-shadow:
+        0 15px 35px
+        rgba(30,20,90,0.2);
+}
+
+
+.output-title {
+
+    margin-bottom: 10px;
+
+    color: #9be7ff;
+
+    font-size: 14px;
+
+    letter-spacing: 2px;
+}
+
+
+.code-output p:last-child {
+
+    margin: 0;
+
+    color: white;
+
+    font-size: 16px;
+}
+
+
+/* =========================================
+   MESSAGE
+========================================= */
+
+.code-message {
+
+    margin-top: 25px;
+
+    padding: 20px;
+
+    color: white;
+
+    font-size: 17px;
+}
+
+
+.code-message p {
+
+    margin: 8px 0;
+}
+
+
+.highlight-code {
+
+    font-family: Georgia, serif;
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    text-shadow:
+        0 3px 15px
+        rgba(0,0,0,0.2);
+}
+
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes codeScreenEnter {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(35px)
+            scale(0.96);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+}
+
+
+@keyframes codeSparkle {
+
+    0%,
+    100% {
+
+        transform: scale(1);
+
+        opacity: 0.7;
+    }
+
+    50% {
+
+        transform: scale(1.35);
+
+        opacity: 1;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .code-screen {
+
+        padding:
+            25px 12px;
+    }
+
+
+    .code-content {
+
+        width: 96%;
+    }
+
+
+    .code-window {
+
+        border-radius: 18px;
+    }
+
+
+    .code-window pre {
+
+        padding: 20px;
+
+        font-size: 13px;
+
+        line-height: 1.7;
+    }
+
+
+    .code-message {
+
+        font-size: 15px;
+    }
+
+
+    .highlight-code {
+
+        font-size: 19px;
+    }
+
+
+    .code-output {
+
+        padding: 17px;
+    }
+
+
+    .code-output p:last-child {
+
+        font-size: 14px;
+    }
+
 }

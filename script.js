@@ -5,8 +5,11 @@
 const startScreen = document.getElementById("startScreen");
 const loadingScreen = document.getElementById("loadingScreen");
 const dashboard = document.getElementById("dashboard");
+
 const memories = document.getElementById("memories");
-const ourStory = document.getElementById("ourStory");
+const story = document.getElementById("story");
+const friendship = document.getElementById("friendship");
+const myMessage = document.getElementById("myMessage");
 
 
 /* =========================================
@@ -15,15 +18,22 @@ const ourStory = document.getElementById("ourStory");
 
 function startSurprise() {
 
-    // Hide home page
+    // Make sure the required elements exist
+    if (!startScreen || !loadingScreen) {
+        console.error("Start or loading screen not found.");
+        return;
+    }
+
+    // Hide welcome screen
     startScreen.style.display = "none";
 
     // Show loading screen
     loadingScreen.style.display = "flex";
-
     loadingScreen.classList.add("show");
 
+
     let progress = 0;
+
 
     const progressBar =
         document.getElementById("progressBar");
@@ -45,29 +55,59 @@ function startSurprise() {
     ];
 
 
+    // Reset loading values
+    if (progressBar) {
+        progressBar.style.width = "0%";
+    }
+
+    if (percentage) {
+        percentage.textContent = "0%";
+    }
+
+    if (loadingText) {
+        loadingText.textContent =
+            messages[0];
+    }
+
+
     const interval = setInterval(() => {
 
         progress += 2;
+
 
         if (progress > 100) {
             progress = 100;
         }
 
 
-        // Progress bar
+        /* -----------------------------
+           PROGRESS BAR
+        ----------------------------- */
+
         if (progressBar) {
-            progressBar.style.width = progress + "%";
+
+            progressBar.style.width =
+                progress + "%";
+
         }
 
 
-        // Percentage
+        /* -----------------------------
+           PERCENTAGE
+        ----------------------------- */
+
         if (percentage) {
+
             percentage.textContent =
                 progress + "%";
+
         }
 
 
-        // Loading messages
+        /* -----------------------------
+           LOADING MESSAGE
+        ----------------------------- */
+
         if (loadingText) {
 
             const messageIndex =
@@ -78,27 +118,37 @@ function startSurprise() {
 
             loadingText.textContent =
                 messages[messageIndex];
+
         }
 
 
-        // Finished
+        /* -----------------------------
+           FINISHED
+        ----------------------------- */
+
         if (progress >= 100) {
 
             clearInterval(interval);
 
+
             setTimeout(() => {
 
+                // Hide loading screen
                 loadingScreen.classList.remove("show");
-
                 loadingScreen.style.display = "none";
 
+
+                // Show dashboard
                 showDashboard();
 
+
             }, 700);
+
         }
 
     }, 50);
 }
+
 
 
 /* =========================================
@@ -107,15 +157,44 @@ function startSurprise() {
 
 function showDashboard() {
 
-    // Hide everything else
-    startScreen.style.display = "none";
-    loadingScreen.style.display = "none";
-    memories.style.display = "none";
-    ourStory.classList.remove("show");
+    // Hide all screens safely
+
+    if (startScreen) {
+        startScreen.style.display = "none";
+    }
+
+    if (loadingScreen) {
+        loadingScreen.style.display = "none";
+    }
+
+    if (memories) {
+        memories.style.display = "none";
+    }
+
+    if (story) {
+        story.style.display = "none";
+        story.classList.remove("show");
+    }
+
+    if (friendship) {
+        friendship.style.display = "none";
+        friendship.classList.remove("show");
+    }
+
+    if (myMessage) {
+        myMessage.style.display = "none";
+        myMessage.classList.remove("show");
+    }
+
 
     // Show dashboard
-    dashboard.style.display = "flex";
+
+    if (dashboard) {
+        dashboard.style.display = "flex";
+    }
+
 }
+
 
 
 /* =========================================
@@ -125,15 +204,28 @@ function showDashboard() {
 function openMemories() {
 
     // Hide dashboard
-    dashboard.style.display = "none";
+    if (dashboard) {
+        dashboard.style.display = "none";
+    }
 
-    // Hide story
-    ourStory.classList.remove("show");
+
+    // Hide other screens
+    hideOtherScreens();
+
 
     // Show memories
-    memories.style.display = "flex";
+    if (memories) {
+
+        memories.style.display = "flex";
+
+    }
+
+
+    // Display current memory
+    showMemory(currentMemory);
 
 }
+
 
 
 /* =========================================
@@ -142,11 +234,17 @@ function openMemories() {
 
 function closeMemories() {
 
-    memories.style.display = "none";
+    if (memories) {
+        memories.style.display = "none";
+    }
 
-    dashboard.style.display = "flex";
+
+    if (dashboard) {
+        dashboard.style.display = "flex";
+    }
 
 }
+
 
 
 /* =========================================
@@ -155,16 +253,26 @@ function closeMemories() {
 
 function openStory() {
 
-    // Hide dashboard completely
-    dashboard.style.display = "none";
+    // Hide dashboard
+    if (dashboard) {
+        dashboard.style.display = "none";
+    }
 
-    // Hide memories
-    memories.style.display = "none";
 
-    // Show ONLY story
-    ourStory.classList.add("show");
+    // Hide other screens
+    hideOtherScreens();
+
+
+    // Show story
+    if (story) {
+
+        story.style.display = "flex";
+        story.classList.add("show");
+
+    }
 
 }
+
 
 
 /* =========================================
@@ -173,13 +281,152 @@ function openStory() {
 
 function closeStory() {
 
-    // Hide story
-    ourStory.classList.remove("show");
+    if (story) {
 
-    // Return to dashboard
-    dashboard.style.display = "flex";
+        story.style.display = "none";
+        story.classList.remove("show");
+
+    }
+
+
+    if (dashboard) {
+        dashboard.style.display = "flex";
+    }
 
 }
+
+
+
+/* =========================================
+   OPEN FRIENDSHIP.PY
+========================================= */
+
+function openFriendship() {
+
+    if (dashboard) {
+        dashboard.style.display = "none";
+    }
+
+
+    hideOtherScreens();
+
+
+    if (friendship) {
+
+        friendship.style.display = "flex";
+        friendship.classList.add("show");
+
+    }
+
+}
+
+
+
+/* =========================================
+   CLOSE FRIENDSHIP.PY
+========================================= */
+
+function closeFriendship() {
+
+    if (friendship) {
+
+        friendship.style.display = "none";
+        friendship.classList.remove("show");
+
+    }
+
+
+    if (dashboard) {
+        dashboard.style.display = "flex";
+    }
+
+}
+
+
+
+/* =========================================
+   OPEN MESSAGE
+========================================= */
+
+function openMessage() {
+
+    if (dashboard) {
+        dashboard.style.display = "none";
+    }
+
+
+    hideOtherScreens();
+
+
+    if (myMessage) {
+
+        myMessage.style.display = "flex";
+        myMessage.classList.add("show");
+
+    }
+
+}
+
+
+
+/* =========================================
+   CLOSE MESSAGE
+========================================= */
+
+function closeMessage() {
+
+    if (myMessage) {
+
+        myMessage.style.display = "none";
+        myMessage.classList.remove("show");
+
+    }
+
+
+    if (dashboard) {
+        dashboard.style.display = "flex";
+    }
+
+}
+
+
+
+/* =========================================
+   HIDE OTHER SCREENS
+========================================= */
+
+function hideOtherScreens() {
+
+    if (memories) {
+        memories.style.display = "none";
+    }
+
+
+    if (story) {
+
+        story.style.display = "none";
+        story.classList.remove("show");
+
+    }
+
+
+    if (friendship) {
+
+        friendship.style.display = "none";
+        friendship.classList.remove("show");
+
+    }
+
+
+    if (myMessage) {
+
+        myMessage.style.display = "none";
+        myMessage.classList.remove("show");
+
+    }
+
+}
+
 
 
 /* =========================================
@@ -189,26 +436,44 @@ function closeStory() {
 const memoryList = [
 
     {
-        image: "C:\\Users\\samue\\OneDrive\\Desktop\\bd\\image\\pi.jpeg",
-        caption: "It was just a silly moment, but this picture gave me one of those laughs I’ll always remember. And this 1st pic-AI😂✨” "
+        image: "image/pi.jpeg",
+
+        caption:
+            "It was just a silly moment. I’ll never forget it. And 1st pic — AI 😂✨"
     },
+
+
     {
-        image: "C:\\Users\\samue\\OneDrive\\Desktop\\bd\\image\\IMG-20260326-WA0065.jpg.jpeg",
-        caption: "I never forget this movement where a silly fight due to a caputruring a pics . may be this movement created all this friendship and love between us ."
+        image: "image/IMG-20260326-WA0065.jpg.jpeg",
+
+        caption:
+            "I never forget this moment where a silly fight happened due to capturing pics. Maybe this moment created all this friendship and love between us. 💙"
     },
+
+
     {
-        image: "C:\\Users\\samue\\OneDrive\\Desktop\\bd\\image\\WhatsApp Image 2026-09-02 at 2.15.08 AM.jpeg",
-        caption: "An unexpected visit to the temple because of some issues… but somehow, it became one of the most memorable experiences with you. And just like those previous days, this little moment became another beautiful memory of us. 💙✨"
+        image:
+            "image/WhatsApp Image 2026-09-02 at 2.15.08 AM.jpeg",
+
+        caption:
+            "An unexpected visit to the temple because of some issues… but somehow, it became one of the most memorable experiences with you. And just like those previous days, this little moment became another beautiful memory of us. 💙✨"
     }
+
 ];
 
 
+
 /* =========================================
-   MEMORY SYSTEM
+   CURRENT MEMORY
 ========================================= */
 
-let currentMemory = 0;s
+let currentMemory = 0;
 
+
+
+/* =========================================
+   SHOW MEMORY
+========================================= */
 
 function showMemory(index) {
 
@@ -222,14 +487,34 @@ function showMemory(index) {
         document.getElementById("memoryCounter");
 
 
+    // Check elements
     if (!image || !caption || !counter) {
+
+        console.error(
+            "Memory elements not found."
+        );
+
         return;
+
+    }
+
+
+    // Check memory list
+    if (
+        memoryList.length === 0 ||
+        !memoryList[index]
+    ) {
+
+        return;
+
     }
 
 
     const memory =
         memoryList[index];
 
+
+    // Fade image out
 
     image.style.opacity = "0";
 
@@ -238,18 +523,37 @@ function showMemory(index) {
 
         image.src = memory.image;
 
+        image.alt =
+            "Memory " + (index + 1);
+
+
         caption.textContent =
             memory.caption;
+
 
         counter.textContent =
             (index + 1) +
             " / " +
             memoryList.length;
 
+
         image.style.opacity = "1";
 
+
+        // Handle image loading error
+        image.onerror = function () {
+
+            console.error(
+                "Image not found:",
+                memory.image
+            );
+
+        };
+
     }, 200);
+
 }
+
 
 
 /* =========================================
@@ -262,14 +566,24 @@ function nextMemory() {
         return;
     }
 
+
     currentMemory++;
 
-    if (currentMemory >= memoryList.length) {
+
+    if (
+        currentMemory >=
+        memoryList.length
+    ) {
+
         currentMemory = 0;
+
     }
 
+
     showMemory(currentMemory);
+
 }
+
 
 
 /* =========================================
@@ -282,36 +596,128 @@ function previousMemory() {
         return;
     }
 
+
     currentMemory--;
 
+
     if (currentMemory < 0) {
+
         currentMemory =
             memoryList.length - 1;
+
     }
 
+
     showMemory(currentMemory);
+
 }
+
 
 
 /* =========================================
    INITIAL SCREEN
 ========================================= */
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
 
-    // Home visible
-    startScreen.style.display = "flex";
+        // Welcome screen visible
 
-    // Everything else hidden
-    loadingScreen.style.display = "none";
+        if (startScreen) {
+            startScreen.style.display = "flex";
+        }
 
+
+        // Loading hidden
+
+        if (loadingScreen) {
+            loadingScreen.style.display = "none";
+        }
+
+
+        // Dashboard hidden
+
+        if (dashboard) {
+            dashboard.style.display = "none";
+        }
+
+
+        // Memories hidden
+
+        if (memories) {
+            memories.style.display = "none";
+        }
+
+
+        // Story hidden
+
+        if (story) {
+
+            story.style.display = "none";
+            story.classList.remove("show");
+
+        }
+
+
+        // Friendship hidden
+
+        if (friendship) {
+
+            friendship.style.display = "none";
+            friendship.classList.remove("show");
+
+        }
+
+
+        // Message hidden
+
+        if (myMessage) {
+
+            myMessage.style.display = "none";
+            myMessage.classList.remove("show");
+
+        }
+
+
+        // Load first memory
+
+        showMemory(0);
+
+    }
+);
+/* =========================================
+   FRIENDSHIP CODE
+========================================= */
+
+const friendshipCode =
+    document.getElementById("friendshipCode");
+
+
+function openFriendshipCode() {
+
+    // Hide dashboard
     dashboard.style.display = "none";
 
+    // Hide memories
     memories.style.display = "none";
 
-    ourStory.classList.remove("show");
+    // Hide story
+    if (ourStory) {
+        ourStory.classList.remove("story-active");
+        ourStory.style.display = "none";
+    }
 
-    // Load first memory
-    showMemory(0);
+    // Show Friendship.py
+    friendshipCode.style.display = "flex";
+}
 
-});
+
+function closeFriendshipCode() {
+
+    // Hide Friendship.py
+    friendshipCode.style.display = "none";
+
+    // Return to dashboard
+    dashboard.style.display = "flex";
+}
